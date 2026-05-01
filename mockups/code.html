@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ASCENT PNEU | High-Stakes Industrial Export</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-container": "#1c4fa0",
+                        "tertiary-fixed-dim": "#ffb68d",
+                        "surface-container-highest": "#e2e2e9",
+                        "on-surface": "#1a1b21",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f3f3fa",
+                        "on-primary-fixed-variant": "#054394",
+                        "tertiary-fixed": "#ffdbc9",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#aec6ff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#001a42",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#e8e7ef",
+                        "background": "#faf9ff",
+                        "on-secondary-fixed-variant": "#334577",
+                        "tertiary-container": "#873c00",
+                        "on-background": "#1a1b21",
+                        "outline-variant": "#c3c6d3",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#021849",
+                        "primary": "#00387f",
+                        "on-secondary-container": "#3f5083",
+                        "outline": "#737783",
+                        "primary-fixed-dim": "#aec6ff",
+                        "on-surface-variant": "#434751",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "on-tertiary-fixed": "#321200",
+                        "on-tertiary-fixed-variant": "#763300",
+                        "inverse-surface": "#2e3036",
+                        "surface": "#faf9ff",
+                        "inverse-on-surface": "#f0f0f8",
+                        "primary-fixed": "#d8e2ff",
+                        "secondary-container": "#b4c5ff",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#2d5cae",
+                        "on-tertiary-container": "#ffb48a",
+                        "surface-dim": "#d9d9e1",
+                        "secondary-fixed": "#dbe1ff",
+                        "tertiary": "#632a00",
+                        "surface-variant": "#e2e2e9",
+                        "surface-container": "#ededf5",
+                        "surface-bright": "#faf9ff",
+                        "secondary": "#4b5c90",
+                        "on-primary-container": "#acc5ff",
+                        "ascent-navy": "#0A1F50",
+                        "ascent-blue": "#1C4FA0",
+                        "ascent-beige": "#F2E4C8",
+                        "ascent-cream": "#F7F2E8"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "0px"
+                    },
+                    spacing: {
+                        "xs": "8px",
+                        "md": "32px",
+                        "xl": "128px",
+                        "base": "4px",
+                        "sm": "16px",
+                        "lg": "64px",
+                        "container-max": "1280px",
+                        "gutter": "24px"
+                    },
+                    fontFamily: {
+                        "h2": ["Sora"],
+                        "h1": ["Sora"],
+                        "body-bold": ["Sora"],
+                        "h3": ["Sora"],
+                        "caption": ["Sora"],
+                        "body-reg": ["Sora"],
+                        "button-text": ["Sora"]
+                    },
+                    fontSize: {
+                        "h2": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "h1": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-bold": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "700"}],
+                        "h3": ["24px", {"lineHeight": "1.3", "letterSpacing": "0", "fontWeight": "700"}],
+                        "caption": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "body-reg": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                        "button-text": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #1C4FA0; }
+        
+        /* Device Mockup Shells */
+        .device-container {
+            border: 12px solid #2e3036;
+            border-radius: 24px;
+            overflow: hidden;
+            background: #F7F2E8;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            position: relative;
+        }
+        .scroll-hide::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-surface-container-low font-body-reg text-on-surface">
+<!-- SCREEN PRESENTATION WRAPPER -->
+<main class="min-h-screen p-8 lg:p-16 flex flex-col gap-12 overflow-x-auto">
+<div class="flex flex-col gap-4 max-w-7xl mx-auto w-full">
+<h1 class="font-h1 text-h1 text-ascent-navy">Responsive Preview Shell</h1>
+<p class="font-body-reg text-on-surface-variant max-w-2xl">Industrial Minimalism for ASCENT PNEU. Displaying the engineering precision across Desktop, Tablet, and Mobile viewport standards.</p>
+</div>
+<div class="flex flex-row items-start gap-12 min-w-max pb-16">
+<!-- DESKTOP FRAME (1440px Scaled) -->
+<div class="flex flex-col gap-4">
+<span class="font-button-text text-ascent-blue uppercase tracking-widest">Desktop (1440px)</span>
+<div class="device-container w-[1000px] h-[700px] scale-90 origin-top-left border-8">
+<div class="w-full h-full overflow-y-auto scroll-hide bg-ascent-cream">
+<!-- Desktop Content -->
+<div class="w-full" id="desktop-view"></div>
+</div>
+</div>
+</div>
+<!-- TABLET FRAME (768px Scaled) -->
+<div class="flex flex-col gap-4">
+<span class="font-button-text text-ascent-blue uppercase tracking-widest">Tablet (768px)</span>
+<div class="device-container w-[500px] h-[700px] border-8">
+<div class="w-full h-full overflow-y-auto scroll-hide bg-ascent-cream">
+<!-- Tablet Content -->
+<div class="w-full" id="tablet-view"></div>
+</div>
+</div>
+</div>
+<!-- MOBILE FRAME (390px) -->
+<div class="flex flex-col gap-4">
+<span class="font-button-text text-ascent-blue uppercase tracking-widest">Mobile (390px)</span>
+<div class="device-container w-[390px] h-[700px] border-8">
+<div class="w-full h-full overflow-y-auto scroll-hide bg-ascent-cream">
+<!-- Mobile Content -->
+<div class="w-full" id="mobile-view"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- COMPONENT TEMPLATES (Hidden, cloned by JS if needed or just repeated for static reliability) -->
+<!-- Content shared via IDs for consistency in the mockup -->
+<script>
+        const contentTemplate = (mode) => `
+            <!-- NAVBAR -->
+            <nav class="bg-ascent-navy h-20 flex items-center justify-between px-8 sticky top-0 z-50">
+                <div class="flex items-center">
+                    <span class="text-white font-black text-xl tracking-tighter uppercase font-h1">ASCENT <span class="text-ascent-beige">PNEU</span></span>
+                </div>
+                ${mode === 'mobile' ? `
+                <button class="text-ascent-beige">
+                    <span class="material-symbols-outlined text-3xl">menu</span>
+                </button>
+                ` : `
+                <div class="flex items-center gap-8">
+                    <div class="flex gap-6 font-body-bold text-xs uppercase tracking-widest text-white">
+                        <a href="#" class="hover:text-ascent-beige transition-colors">Offre</a>
+                        <a href="#" class="hover:text-ascent-beige transition-colors">Comment ça marche</a>
+                        <a href="#" class="hover:text-ascent-beige transition-colors">Contact</a>
+                    </div>
+                    <div class="text-ascent-beige font-button-text border-l border-white/20 pl-8">
+                        FR | EN
+                    </div>
+                </div>
+                `}
+            </nav>
+
+            <!-- HERO -->
+            <section class="bg-ascent-navy min-h-[500px] flex items-center px-8 relative overflow-hidden">
+                <div class="max-w-6xl mx-auto w-full grid grid-cols-1 ${mode === 'desktop' ? 'md:grid-cols-2' : ''} gap-12 items-center py-16">
+                    <div class="z-10">
+                        <h1 class="font-h1 ${mode === 'desktop' ? 'text-[56px]' : 'text-h1'} text-white leading-[1] mb-6">
+                            Collecté en France.<br/>
+                            <span class="text-ascent-beige">Livré au monde.</span>
+                        </h1>
+                        <p class="text-surface-variant font-body-reg text-lg mb-8 max-w-lg">
+                            Expertise logistique et traçabilité totale pour l'exportation de pneumatiques usagés triés selon les standards industriels les plus stricts.
+                        </p>
+                        <button class="bg-ascent-beige text-ascent-navy font-button-text px-8 py-4 uppercase tracking-widest inline-block hover:bg-white transition-colors">
+                            Demander un devis
+                        </button>
+                    </div>
+                    ${mode !== 'mobile' ? `
+                    <div class="relative flex justify-center items-center">
+                        <div class="w-80 h-80 border-[1px] border-white/20 rounded-full flex justify-center items-center">
+                            <div class="w-64 h-64 border-[1px] border-ascent-beige/40 rounded-full flex justify-center items-center">
+                                <div class="w-48 h-48 border-[2px] border-white/60 rounded-full"></div>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                             <div class="w-full h-[1px] bg-white/10 rotate-45"></div>
+                             <div class="w-full h-[1px] bg-white/10 -rotate-45"></div>
+                        </div>
+                    </div>
+                    ` : ''}
+                </div>
+            </section>
+
+            <!-- STATS -->
+            <section class="bg-ascent-cream border-y border-ascent-navy/10">
+                <div class="max-w-6xl mx-auto px-8 py-12">
+                    <div class="grid grid-cols-1 ${mode !== 'mobile' ? 'md:grid-cols-3' : ''} gap-0">
+                        <div class="py-8 ${mode !== 'mobile' ? 'border-r border-ascent-navy/10' : 'border-b border-ascent-navy/10'} px-8 flex flex-col gap-2">
+                            <span class="text-ascent-blue font-h2 text-h2">15k+</span>
+                            <span class="text-ascent-navy font-body-bold uppercase text-xs tracking-widest">Pneus collectés/mois</span>
+                        </div>
+                        <div class="py-8 ${mode !== 'mobile' ? 'border-r border-ascent-navy/10' : 'border-b border-ascent-navy/10'} px-8 flex flex-col gap-2">
+                            <span class="text-ascent-blue font-h2 text-h2">24</span>
+                            <span class="text-ascent-navy font-body-bold uppercase text-xs tracking-widest">Pays d'exportation</span>
+                        </div>
+                        <div class="py-8 px-8 flex flex-col gap-2">
+                            <span class="text-ascent-blue font-h2 text-h2">100%</span>
+                            <span class="text-ascent-navy font-body-bold uppercase text-xs tracking-widest">Traçabilité</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- OFFER -->
+            <section class="bg-ascent-cream py-xl px-8">
+                <div class="max-w-6xl mx-auto">
+                    <h2 class="font-h2 text-h2 text-ascent-navy mb-12 border-l-4 border-ascent-blue pl-6">
+                        Pneus usagés. Triés.<br/>Prêts à l'export.
+                    </h2>
+                    <div class="grid grid-cols-1 ${mode === 'desktop' ? 'md:grid-cols-3' : mode === 'tablet' ? 'md:grid-cols-2' : 'grid-cols-1'} gap-gutter">
+                        <!-- Card 1 -->
+                        <div class="bg-white border-l-8 border-ascent-blue p-8 flex flex-col gap-4">
+                            <h3 class="text-ascent-blue font-h3 text-h3 uppercase">Tourisme</h3>
+                            <p class="text-on-surface-variant font-body-reg">Gamme complète de pneus été et hiver, inspectés individuellement pour garantir l'intégrité structurelle.</p>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="bg-ascent-beige text-ascent-navy text-[10px] px-2 py-1 font-button-text uppercase tracking-tighter">Grade A+</span>
+                                <span class="bg-ascent-beige text-ascent-navy text-[10px] px-2 py-1 font-button-text uppercase tracking-tighter">Mixte</span>
+                            </div>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="bg-white border-l-8 border-ascent-blue p-8 flex flex-col gap-4">
+                            <h3 class="text-ascent-blue font-h3 text-h3 uppercase">Utilitaire</h3>
+                            <p class="text-on-surface-variant font-body-reg">Solutions robustes pour flottes commerciales. Pneumatiques à haute résistance latérale.</p>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="bg-ascent-beige text-ascent-navy text-[10px] px-2 py-1 font-button-text uppercase tracking-tighter">Reinforced</span>
+                                <span class="bg-ascent-beige text-ascent-navy text-[10px] px-2 py-1 font-button-text uppercase tracking-tighter">C-Tyres</span>
+                            </div>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class="bg-white border-l-8 border-ascent-blue p-8 flex flex-col gap-4">
+                            <h3 class="text-ascent-blue font-h3 text-h3 uppercase">Poids Lourd</h3>
+                            <p class="text-on-surface-variant font-body-reg">Carcasses premium pour rechapage ou réutilisation immédiate en zones spécifiques.</p>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="bg-ascent-beige text-ascent-navy text-[10px] px-2 py-1 font-button-text uppercase tracking-tighter">Truck</span>
+                                <span class="bg-ascent-beige text-ascent-navy text-[10px] px-2 py-1 font-button-text uppercase tracking-tighter">Bus</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HOW IT WORKS -->
+            <section class="bg-white py-xl px-8">
+                <div class="max-w-6xl mx-auto text-center">
+                    <h2 class="font-h2 text-h2 text-ascent-navy mb-16 uppercase tracking-tight">Processus d'Exportation</h2>
+                    <div class="flex flex-col ${mode !== 'mobile' ? 'md:flex-row' : ''} justify-between items-center gap-12 relative">
+                        ${mode !== 'mobile' ? '<div class="absolute top-10 left-0 w-full h-0 border-t-2 border-dotted border-ascent-beige z-0"></div>' : ''}
+                        
+                        <div class="relative z-10 flex flex-col items-center gap-4 bg-white px-4">
+                            <div class="w-20 h-20 bg-ascent-blue text-white flex items-center justify-center text-3xl font-black">01</div>
+                            <span class="font-body-bold text-ascent-navy uppercase tracking-widest text-sm">Sourcing & Tri</span>
+                        </div>
+                        <div class="relative z-10 flex flex-col items-center gap-4 bg-white px-4">
+                            <div class="w-20 h-20 bg-ascent-blue text-white flex items-center justify-center text-3xl font-black">02</div>
+                            <span class="font-body-bold text-ascent-navy uppercase tracking-widest text-sm">Conditionnement</span>
+                        </div>
+                        <div class="relative z-10 flex flex-col items-center gap-4 bg-white px-4">
+                            <div class="w-20 h-20 bg-ascent-blue text-white flex items-center justify-center text-3xl font-black">03</div>
+                            <span class="font-body-bold text-ascent-navy uppercase tracking-widest text-sm">Logistique Global</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TRUST -->
+            <section class="bg-ascent-cream py-xl px-8">
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid grid-cols-1 ${mode !== 'mobile' ? 'md:grid-cols-3' : ''} gap-12">
+                        <div class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-ascent-blue text-4xl">inventory_2</span>
+                            <div>
+                                <h4 class="font-body-bold text-ascent-navy uppercase">Collecté en France</h4>
+                                <p class="text-on-surface-variant text-sm">Origine 100% française certifiée.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-ascent-blue text-4xl">verified</span>
+                            <div>
+                                <h4 class="font-body-bold text-ascent-navy uppercase">Aliapur Certifié</h4>
+                                <p class="text-on-surface-variant text-sm">Conformité environnementale stricte.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-ascent-blue text-4xl">public</span>
+                            <div>
+                                <h4 class="font-body-bold text-ascent-navy uppercase">Livraison Monde</h4>
+                                <p class="text-on-surface-variant text-sm">Export maritime toutes destinations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CONTACT -->
+            <section class="bg-ascent-cream pb-xl px-8">
+                <div class="max-w-6xl mx-auto bg-white border border-ascent-navy/10 overflow-hidden">
+                    <div class="grid grid-cols-1 ${mode === 'desktop' ? 'md:grid-cols-2' : ''}">
+                        <div class="bg-ascent-blue p-12 text-white flex flex-col justify-between">
+                            <div>
+                                <h2 class="font-h2 text-h2 mb-8">Contactez l'expert.</h2>
+                                <div class="flex flex-col gap-6">
+                                    <div class="flex items-center gap-4">
+                                        <span class="material-symbols-outlined">mail</span>
+                                        <span class="font-body-reg">contact@ascent-pneu.fr</span>
+                                    </div>
+                                    <div class="flex items-center gap-4">
+                                        <span class="material-symbols-outlined">chat</span>
+                                        <span class="font-body-reg">+33 6 12 34 56 78 (WhatsApp)</span>
+                                    </div>
+                                    <div class="flex items-center gap-4">
+                                        <span class="material-symbols-outlined">location_on</span>
+                                        <span class="font-body-reg">Marseille, France - Zone Portuaire</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-12">
+                            <form class="flex flex-col gap-6">
+                                <div>
+                                    <label class="block font-button-text uppercase text-[10px] text-on-surface-variant mb-2">Nom complet</label>
+                                    <input type="text" class="w-full border-2 border-ascent-beige px-4 py-3 focus:border-ascent-blue focus:ring-0 outline-none" placeholder="Jean Dupont">
+                                </div>
+                                <div>
+                                    <label class="block font-button-text uppercase text-[10px] text-on-surface-variant mb-2">Volume souhaité (Conteneurs)</label>
+                                    <input type="number" class="w-full border-2 border-ascent-beige px-4 py-3 focus:border-ascent-blue focus:ring-0 outline-none" placeholder="2">
+                                </div>
+                                <div>
+                                    <label class="block font-button-text uppercase text-[10px] text-on-surface-variant mb-2">Message</label>
+                                    <textarea rows="4" class="w-full border-2 border-ascent-beige px-4 py-3 focus:border-ascent-blue focus:ring-0 outline-none" placeholder="Détails de votre demande..."></textarea>
+                                </div>
+                                <button class="bg-ascent-beige text-ascent-navy font-button-text py-4 uppercase tracking-widest hover:bg-ascent-blue hover:text-white transition-all">
+                                    Envoyer ma demande
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="bg-ascent-navy py-16 px-8">
+                <div class="max-w-6xl mx-auto flex flex-col ${mode !== 'mobile' ? 'md:flex-row' : ''} justify-between items-start gap-12">
+                    <div>
+                        <span class="text-white font-black text-xl tracking-tighter uppercase mb-2 block">ASCENT PNEU</span>
+                        <p class="text-on-primary-container text-xs font-body-reg uppercase tracking-widest">WWW.ASCENT-PNEU.COM</p>
+                    </div>
+                    <div class="flex flex-col ${mode !== 'mobile' ? 'md:flex-row' : ''} gap-8 text-[10px] font-button-text text-white/60 uppercase tracking-widest">
+                        <a href="#" class="hover:text-ascent-beige">Mentions Légales</a>
+                        <a href="#" class="hover:text-ascent-beige">Privacy Policy</a>
+                        <span class="text-ascent-beige">FR | EN</span>
+                    </div>
+                </div>
+                <div class="max-w-6xl mx-auto mt-12 pt-8 border-t border-white/10 text-[10px] text-white/30 uppercase tracking-widest">
+                    © 2024 ASCENT PNEU. ALL RIGHTS RESERVED.
+                </div>
+            </footer>
+        `;
+
+        document.getElementById('desktop-view').innerHTML = contentTemplate('desktop');
+        document.getElementById('tablet-view').innerHTML = contentTemplate('tablet');
+        document.getElementById('mobile-view').innerHTML = contentTemplate('mobile');
+    </script>
+</body></html>
