@@ -1017,7 +1017,12 @@
         <div class="contact-form-panel">
           <h3 data-fr="Demande de devis" data-en="Request for Quote">Demande de devis</h3>
 
-          <form id="rfqForm" class="form-grid" novalidate>
+          <form id="rfqForm" class="form-grid"
+                action="https://formspree.io/f/xeenapnv"
+                method="POST" novalidate>
+            <input type="hidden" name="_subject" value="Nouvelle demande de devis — SMAC Pneu" />
+            <input type="hidden" name="_language" value="fr" />
+            <input type="hidden" id="tireType" name="type_pneus" value="Tourisme" />
             <div class="fg">
               <label for="name" data-fr="Nom complet" data-en="Full Name">Nom complet</label>
               <input type="text" id="name" name="name"
@@ -1219,10 +1224,45 @@
   });
 
   /* ── Form ─────────────────────────────────────────── */
-  document.getElementById('rfqForm').addEventListener('submit', e => {
+  /* ── Sync chips → hidden input ───────────────────── */
+  document.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const selected = [...document.querySelectorAll('.chip.active')].map(c => c.dataset.value).join(', ');
+      document.getElementById('tireType').value = selected || chip.dataset.value;
+    });
+  });
+
+  /* ── Form submission → Formspree ─────────────────── */
+  document.getElementById('rfqForm').addEventListener('submit', async e => {
     e.preventDefault();
-    document.getElementById('rfqForm').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
+    const form = e.target;
+    const btn = form.querySelector('.btn-submit');
+    const selected = [...document.querySelectorAll('.chip.active')].map(c => c.dataset.value).join(', ');
+    document.getElementById('tireType').value = selected;
+
+    btn.disabled = true;
+    btn.textContent = '…';
+
+    try {
+      const res = await fetch('https://formspree.io/f/xeenapnv', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        form.style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      } else {
+        btn.disabled = false;
+        btn.dataset.fr && (btn.textContent = btn.dataset[lang] || 'Envoyer ma demande');
+        alert('Une erreur est survenue. Merci de réessayer ou de nous contacter par email.');
+      }
+    } catch {
+      btn.disabled = false;
+      btn.textContent = btn.dataset[lang] || 'Envoyer ma demande';
+      alert('Connexion impossible. Merci de réessayer.');
+    }
   });
 
   /* ── Floating pill visibility ─────────────────────── */
