@@ -263,6 +263,53 @@
     .form-success h3 { font-size: 22px; color: var(--forest); margin-bottom: 12px; }
     .form-success p  { font-size: 15px; color: var(--slate); line-height: 1.6; }
 
+    /* ── Contact split ─────────────────────────────── */
+    .contact-split {
+      display: grid; grid-template-columns: 5fr 7fr;
+      border-radius: 8px; overflow: hidden;
+      box-shadow: 0 4px 32px rgba(0,0,0,.10);
+      max-width: 1000px; margin: 0 auto;
+    }
+    .contact-panel {
+      background: var(--charcoal); padding: 52px 44px;
+      display: flex; flex-direction: column; justify-content: center; gap: 0;
+    }
+    .contact-panel__title {
+      font-size: 36px; font-weight: 800; line-height: 1.15;
+      color: #fff; margin-bottom: 40px;
+    }
+    .contact-panel__items { display: flex; flex-direction: column; gap: 28px; }
+    .contact-panel__item { display: flex; flex-direction: column; gap: 4px; }
+    .contact-panel__label {
+      font-size: 11px; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #6B7280;
+    }
+    .contact-panel__value {
+      font-size: 16px; font-weight: 600; color: #fff; text-decoration: none;
+      transition: color .15s;
+    }
+    .contact-panel__value:hover { color: var(--mist); }
+    .contact-panel__value--bold { font-weight: 800; }
+
+    .contact-form-panel {
+      background: #fff; padding: 48px 44px;
+    }
+    .contact-form-panel h3 {
+      font-size: 22px; font-weight: 700; color: var(--charcoal);
+      margin-bottom: 28px;
+    }
+    .contact-form-panel .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+    @media (max-width: 860px) {
+      .contact-split { grid-template-columns: 1fr; }
+      .contact-panel { padding: 40px 28px; }
+      .contact-panel__title { font-size: 28px; margin-bottom: 28px; }
+      .contact-form-panel { padding: 36px 28px; }
+    }
+    @media (max-width: 600px) {
+      .contact-form-panel .form-grid { grid-template-columns: 1fr; }
+    }
+
     /* ── Footer ────────────────────────────────────── */
     footer { background: var(--charcoal); color: #E1E1E1; padding: 64px 0 0; }
     .footer__inner {
@@ -706,14 +753,34 @@
   <!-- ─── Contact / RFQ ─────────────────────────────── -->
   <section id="contact" style="background:var(--foam)">
     <div class="container">
-      <div class="section-header" style="text-align:center;max-width:580px;margin-left:auto;margin-right:auto;margin-bottom:48px">
-        <p class="section-label" data-fr="Demande de devis" data-en="Request for Quote">Demande de devis</p>
-        <h2 data-fr="Obtenir un devis personnalisé" data-en="Get a Custom Quote">Obtenir un devis personnalisé</h2>
-        <p class="section-intro" data-fr="Remplissez le formulaire — nous vous répondons sous 24 à 48 heures avec une proposition commerciale adaptée." data-en="Fill in the form — we respond within 24 to 48 hours with a tailored commercial proposal.">Remplissez le formulaire — nous vous répondons sous 24 à 48 heures avec une proposition commerciale adaptée.</p>
-      </div>
 
-      <div class="form-wrap">
-        <div class="form-card">
+      <div class="contact-split">
+
+        <!-- Left panel -->
+        <div class="contact-panel">
+          <p class="contact-panel__title"
+             data-fr="Contactez l'équipe." data-en="Get in touch.">Contactez l'équipe.</p>
+
+          <div class="contact-panel__items">
+            <div class="contact-panel__item">
+              <span class="contact-panel__label">Email</span>
+              <a class="contact-panel__value" href="mailto:contact@smacpneu.com">contact@smacpneu.com</a>
+            </div>
+            <div class="contact-panel__item">
+              <span class="contact-panel__label">WhatsApp</span>
+              <a class="contact-panel__value" href="https://wa.me/33755145387" target="_blank" rel="noopener">+33 7 55 14 53 87</a>
+            </div>
+            <div class="contact-panel__item">
+              <span class="contact-panel__label" data-fr="Zone de collecte" data-en="Collection zone">Zone de collecte</span>
+              <span class="contact-panel__value contact-panel__value--bold">FRANCE</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right form panel -->
+        <div class="contact-form-panel">
+          <h3 data-fr="Demande de devis" data-en="Request for Quote">Demande de devis</h3>
+
           <form id="rfqForm" class="form-grid" novalidate>
             <div class="fg">
               <label for="name" data-fr="Nom complet" data-en="Full Name">Nom complet</label>
@@ -724,62 +791,28 @@
             <div class="fg">
               <label for="company" data-fr="Entreprise" data-en="Company">Entreprise</label>
               <input type="text" id="company" name="company"
-                     data-fr-placeholder="SARL Pneus Import" data-en-placeholder="Global Tire Ltd."
-                     placeholder="SARL Pneus Import" required />
+                     data-fr-placeholder="Acme Trading Ltd" data-en-placeholder="Acme Trading Ltd"
+                     placeholder="Acme Trading Ltd" required />
             </div>
             <div class="fg">
-              <label for="email" data-fr="Adresse email" data-en="Email Address">Adresse email</label>
-              <input type="email" id="email" name="email"
-                     data-fr-placeholder="jean@entreprise.com" data-en-placeholder="john@company.com"
-                     placeholder="jean@entreprise.com" required />
-            </div>
-            <div class="fg">
-              <label for="country" data-fr="Pays de destination" data-en="Destination Country">Pays de destination</label>
+              <label for="country" data-fr="Pays" data-en="Country">Pays</label>
               <input type="text" id="country" name="country"
-                     data-fr-placeholder="ex. Sénégal" data-en-placeholder="e.g. Nigeria"
-                     placeholder="ex. Sénégal" required />
-            </div>
-
-            <div class="fg full">
-              <label data-fr="Type de pneus" data-en="Tire Type">Type de pneus</label>
-              <div class="chips" role="group">
-                <button type="button" class="chip active" data-value="tourisme"
-                        data-fr="Tourisme" data-en="Passenger">Tourisme</button>
-                <button type="button" class="chip" data-value="suv"
-                        data-fr="SUV / 4x4" data-en="SUV / 4x4">SUV / 4x4</button>
-                <button type="button" class="chip" data-value="utilitaire"
-                        data-fr="Utilitaire" data-en="Light Commercial">Utilitaire</button>
-                <button type="button" class="chip" data-value="mixte"
-                        data-fr="Mixte" data-en="Mixed">Mixte</button>
-              </div>
-            </div>
-
-            <div class="fg">
-              <label for="volume" data-fr="Volume mensuel (conteneurs)" data-en="Monthly Volume (containers)">Volume mensuel (conteneurs)</label>
-              <select id="volume" name="volume">
-                <option value="1-5"   data-fr="1 à 5 conteneurs"    data-en="1 to 5 containers">1 à 5 conteneurs</option>
-                <option value="5-15"  data-fr="5 à 15 conteneurs"   data-en="5 to 15 containers">5 à 15 conteneurs</option>
-                <option value="15-30" data-fr="15 à 30 conteneurs"  data-en="15 to 30 containers">15 à 30 conteneurs</option>
-                <option value="30-50" data-fr="30 à 50 conteneurs"  data-en="30 to 50 containers">30 to 50 conteneurs</option>
-              </select>
+                     data-fr-placeholder="Sénégal" data-en-placeholder="Nigeria"
+                     placeholder="Sénégal" required />
             </div>
             <div class="fg">
-              <label for="frequency" data-fr="Fréquence" data-en="Frequency">Fréquence</label>
-              <select id="frequency" name="frequency">
-                <option value="spot"      data-fr="Achat ponctuel"   data-en="One-time purchase">Achat ponctuel</option>
-                <option value="monthly"   data-fr="Mensuel"          data-en="Monthly">Mensuel</option>
-                <option value="quarterly" data-fr="Trimestriel"      data-en="Quarterly">Trimestriel</option>
-              </select>
+              <label for="email" data-fr="Email professionnel" data-en="Business Email">Email professionnel</label>
+              <input type="email" id="email" name="email"
+                     data-fr-placeholder="jean@acme.com" data-en-placeholder="john@acme.com"
+                     placeholder="jean@acme.com" required />
             </div>
-
             <div class="fg full">
-              <label for="message" data-fr="Message (optionnel)" data-en="Message (optional)">Message (optionnel)</label>
-              <textarea id="message" name="message" rows="4"
-                        data-fr-placeholder="Précisez vos besoins : grades souhaités, tailles, délais..."
-                        data-en-placeholder="Describe your needs: preferred grades, sizes, lead times..."
-                        placeholder="Précisez vos besoins : grades souhaités, tailles, délais..."></textarea>
+              <label for="message" data-fr="Message" data-en="Message">Message</label>
+              <textarea id="message" name="message" rows="5"
+                        data-fr-placeholder="Catégorie souhaitée, volumes, port de destination..."
+                        data-en-placeholder="Tire category, volumes, destination port..."
+                        placeholder="Catégorie souhaitée, volumes, port de destination..."></textarea>
             </div>
-
             <div class="fg full">
               <button type="submit" class="btn-submit"
                       data-fr="Envoyer ma demande" data-en="Send My Request">Envoyer ma demande</button>
@@ -794,6 +827,7 @@
             <p data-fr="Nous vous répondrons sous 24 à 48 heures avec une proposition commerciale personnalisée." data-en="We will get back to you within 24 to 48 hours with a tailored commercial proposal.">Nous vous répondrons sous 24 à 48 heures avec une proposition commerciale personnalisée.</p>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -838,6 +872,10 @@
         <li class="contact-row">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           Paris, France
+        </li>
+        <li class="contact-row">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <a href="https://www.smacpneu.com/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">www.smacpneu.com</a>
         </li>
         <li class="contact-row">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
