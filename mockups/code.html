@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#eef2ee",
+                        "surface-container-highest": "#e0e3e0",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#b7cbc4",
+                        "tertiary": "#3b4d48",
+                        "surface-container": "#ebefeb",
+                        "outline": "#6f7a74",
+                        "primary": "#005440",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e0e3e0",
+                        "on-surface": "#181d1a",
+                        "tertiary-fixed": "#d3e7e0",
+                        "on-surface-variant": "#3f4944",
+                        "surface": "#f7faf6",
+                        "on-primary-fixed-variant": "#00513e",
+                        "on-tertiary-fixed": "#0d1f1b",
+                        "secondary": "#59605e",
+                        "background": "#f7faf6",
+                        "surface-dim": "#d7dbd7",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#bec9c3",
+                        "on-secondary-fixed-variant": "#424847",
+                        "primary-fixed-dim": "#84d6b9",
+                        "surface-container-low": "#f1f4f1",
+                        "on-background": "#181d1a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#171d1c",
+                        "inverse-primary": "#84d6b9",
+                        "secondary-container": "#dbe1df",
+                        "surface-container-high": "#e5e9e5",
+                        "secondary-fixed": "#dee4e2",
+                        "on-tertiary-container": "#cee1db",
+                        "primary-fixed": "#a0f3d4",
+                        "primary-container": "#0f6e56",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#f7faf6",
+                        "on-tertiary-fixed-variant": "#394a45",
+                        "on-secondary-container": "#5d6463",
+                        "surface-tint": "#086b53",
+                        "tertiary-container": "#536560",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#002117",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#c2c8c6",
+                        "inverse-surface": "#2d312f",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#9aedcf"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "md": "24px",
+                        "container-max": "1280px",
+                        "base": "8px",
+                        "sm": "12px",
+                        "lg": "48px",
+                        "xl": "80px",
+                        "gutter": "24px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Inter"],
+                        "table-header": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "h1": ["Inter"],
+                        "h3": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "h2": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "table-header": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "h1": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "h3": ["24px", {"lineHeight": "1.3", "letterSpacing": "0", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white dark:bg-slate-950 border-b border-[#E1E1E1] dark:border-slate-800 h-[72px]">
+<nav class="max-w-[1280px] mx-auto px-8 h-full flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#0F6E56]" data-icon="tire_repair">tire_repair</span>
+<span class="text-[#1A1F2E] dark:text-white text-xl font-bold tracking-tight">SMAC Pneu</span>
+</div>
+<div class="hidden md:flex items-center gap-8 font-['Inter'] font-semibold text-sm"><a class="text-[#1A1F2E] dark:text-slate-300 hover:text-[#0F6E56] transition-colors" href="#offer">Offre</a><a class="text-[#1A1F2E] dark:text-slate-300 hover:text-[#0F6E56] transition-colors" href="#quality">Qualité</a><a class="text-[#1A1F2E] dark:text-slate-300 hover:text-[#0F6E56] transition-colors" href="#process">Processus</a><a class="text-[#1A1F2E] dark:text-slate-300 hover:text-[#0F6E56] transition-colors" href="#markets">Marchés</a><a class="text-[#1A1F2E] dark:text-slate-300 hover:text-[#0F6E56] transition-colors" href="#contact">Contact</a></div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center gap-2 text-xs font-bold text-on-surface-variant"><span class="text-primary cursor-pointer">FR</span><span class="text-outline">|</span><span class="hover:text-primary cursor-pointer">EN</span></div>
+<a class="bg-primary-container text-on-primary-container px-4 py-2 rounded-lg font-semibold text-sm transition-all hover:opacity-90 active:scale-95" href="#contact">Obtenir un devis</a>
+</div>
+</nav>
+</header>
+<main class="pt-[72px]">
+<!-- Hero Section -->
+<section class="bg-white py-xl">
+<div class="max-w-[1280px] mx-auto px-8 grid lg:grid-cols-2 gap-xl items-center">
+<div class="space-y-md">
+<h1 class="font-h1 text-h1 text-on-surface">Votre fournisseur européen de confiance pour les pneus d'occasion</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">Solutions d'exportation industrielle à haut volume. Livraison de 10 à 50 conteneurs par mois de pneus certifiés Aliapur avec documentation complète à l'export.</p>
+<div class="flex flex-wrap gap-sm">
+<a class="bg-primary text-on-primary px-lg py-sm rounded text-body-md font-semibold hover:opacity-90 transition-opacity" href="#contact">Demander un devis</a>
+</div>
+<div class="flex flex-wrap gap-xs pt-base"><span class="bg-[#E1F5EE] text-[#0F6E56] px-sm py-xs rounded-full text-label-caps font-semibold flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" data-icon="timer">timer</span> Réponse en 24h</span><span class="bg-[#E1F5EE] text-[#0F6E56] px-sm py-xs rounded-full text-label-caps font-semibold flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" data-icon="shipping">local_shipping</span> 10–50 conteneurs/mois</span><span class="bg-[#E1F5EE] text-[#0F6E56] px-sm py-xs rounded-full text-label-caps font-semibold flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" data-icon="verified">verified</span> Source Aliapur</span><span class="bg-[#E1F5EE] text-[#0F6E56] px-sm py-xs rounded-full text-label-caps font-semibold flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" data-icon="description">description</span> Docs export inclus</span></div>
+</div>
+<div class="relative">
+<div class="aspect-video bg-surface-container rounded-xl overflow-hidden shadow-xl">
+<img class="w-full h-full object-cover" data-alt="A clean, industrial warehouse setting with organized stacks of high-quality used tires ready for export. The lighting is bright and professional, highlighting the texture and tread of the tires. The overall aesthetic is modern, efficient, and corporate, using a palette of deep greens and crisp whites to emphasize environmental responsibility and reliability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAC5yRMOOXxnYvTm12GU5ov2DKV2rn_icJB6ZWejXq_6jMjGQafEmWEJT2jnnUxRNtrcrniMrvLGzdxLr0r1AOn0Ikt8jhvomE9Icckjv433za_h-bYGlSb6CQHGJISKCEautKv1HeHm0g6m_bvHkBKVzGJlw-p9EpD15ETKg_kcVPpBYg_9t8TOnue6Be49uyZIxI8ppzwgPhon4bD9_DHAJMvssrXShitKIt0dhInDhsocNZI0H9OyGQT5rGTx7hu3x2fJAN7cA"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Offer Section -->
+<section class="bg-[#F4FAF8] py-xl" id="offer">
+<div class="max-w-[1280px] mx-auto px-8">
+<div class="mb-lg text-center"><h2 class="font-h2 text-h2 text-on-surface">Ce que nous fournissons</h2><p class="text-on-surface-variant mt-xs">Inventaire spécialisé pour divers marchés internationaux.</p></div>
+<div class="grid md:grid-cols-3 gap-md">
+<!-- Card 1 -->
+<div class="bg-white p-md rounded shadow-[0px_4px_20px_rgba(0,0,0,0.04)] border border-[#F0F0F0] hover:border-primary transition-colors group">
+<div class="h-48 bg-surface mb-md rounded overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A studio photograph of a premium passenger car tire showing clear tread patterns against a minimalist white background. The image is crisp and professional, using high-key lighting to emphasize quality and condition. The style is clean and corporate, fitting an industrial B2B export context with a focus on product precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMjSXwENQtQqMTbUf_LlXVafe3YlgwC3e-98ervkL4sokbFzYuHdGTl-alIkIqZ2BXKoUhUUwvntG0d570nz-IZxC6nOkjGasT7TmTSvqSSM49cbn-8j5f2HQbwbQYG_FohQBJjVWhChybdjnWRDrRlpMcwPaCThJAOvARjN4cLR0qO9P35lGC6sCG54k1jMwWuBShNdzv_zft0OaBVIb7nYU5cCZ09UHmP_hlMlBfXUl7lD3q0yRAghPM2s9KVp4v5a9-McJJSQ"/>
+</div>
+<h3 class="font-h3 text-h3 mb-xs">Pneus Tourisme</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm mb-md">Tailles standard de 13" à 17", triées pour une utilité maximale. Stocks certifiés Aliapur.</p>
+<ul class="text-body-sm space-y-2"><li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle">check_circle</span> Grande profondeur de gomme</li><li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle">check_circle</span> Grandes marques disponibles</li></ul>
+</div>
+<!-- Card 2 -->
+<div class="bg-white p-md rounded shadow-[0px_4px_20px_rgba(0,0,0,0.04)] border border-[#F0F0F0] hover:border-primary transition-colors group">
+<div class="h-48 bg-surface mb-md rounded overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A high-resolution image of a rugged SUV tire with deep tread patterns, positioned in a clean and well-lit studio environment. The lighting creates subtle highlights on the rubber texture, symbolizing strength and durability. The professional photographic style maintains a minimalist aesthetic consistent with a global industrial supplier." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgkSTe1H7jBOpBTfMSMm06t2q5rQRLpCvtEcr2ICWt11TYO6nFN-RTEO2T0Tq1CKyCjLSWv9J0-c9imyTE0L1klsLz9w3UMuG4TV3mZqIJJAde8Ys1jwEgOe9xpj_Z-rpgBRl4ZSQ4DlTSJEvEeb_BG3UiXg178I2guT-zD1HzXmCwuf8KuYIENCURzvqhNf1C66_3YBhxcJGQM-wDy42gQNxtQrt9W5xZQoBXdHGAFmszyyqyViAlOO2Tl7OUpt1cU8fQ3OM7ag"/>
+</div>
+<h3 class="font-h3 text-h3 mb-xs">SUV &amp; 4x4</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm mb-md">Options durables pour jantes de 16" à 20", certifiées Aliapur pour terrains difficiles.</p>
+<ul class="text-body-sm space-y-2"><li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle">check_circle</span> Flancs renforcés</li><li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle">check_circle</span> Profils tout-terrain</li></ul>
+</div>
+<!-- Card 3 -->
+<div class="bg-white p-md rounded shadow-[0px_4px_20px_rgba(0,0,0,0.04)] border border-[#F0F0F0] hover:border-primary transition-colors group">
+<div class="h-48 bg-surface mb-md rounded overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A professional product shot of a light commercial vehicle tire, emphasizing load-bearing tread design. The tire is presented in a bright, clean industrial setting with soft shadows, conveying reliability for logistics and business use. The visual style is modern, high-contrast, and focused on functional excellence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBQY3tckKRzFzDwDZGknQddNxrApV3OQwNRFxglD4DHMUVYVWbP3d_kLvzvtowVYYmjkhYRfMlGplhwQFb91xiFgTm5ahiwACgI37SemOSx3Hk7Q6Etxw6oTBYj9kVN_gkt6JpZYdfAjMOTD2jbWiRitgKgvC3VF4Z-riFkRoPTuTTRa9dl-B9yu7o4bVTpUd_DByt_pWWFNPHPsechXGkE_R7FrPW0StzCpugIL0O7yXxwvG0o88UhWT00vd8CCubvbygpADCwA"/>
+</div>
+<h3 class="font-h3 text-h3 mb-xs">Véhicules Utilitaires</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm mb-md">Pneus certifiés Aliapur pour véhicules utilitaires légers (VUL) à usage intensif pour l'export.</p>
+<ul class="text-body-sm space-y-2"><li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle">check_circle</span> Indice de charge élevé</li><li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle">check_circle</span> Durabilité longue distance</li></ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Quality Section -->
+<section class="bg-white py-xl" id="quality">
+<div class="max-w-[1280px] mx-auto px-8">
+<div class="mb-lg"><h2 class="font-h2 text-h2 text-on-surface">Nos niveaux de qualité</h2><p class="text-on-surface-variant">Protocoles de tri stricts pour garantir la satisfaction de l'acheteur.</p></div>
+<div class="overflow-x-auto">
+<table class="w-full border-collapse">
+<thead>
+<tr class="bg-surface text-left"><th class="p-md font-table-header text-table-header border-b border-[#E1E1E1]">Caractéristique</th><th class="p-md font-table-header text-table-header border-b border-[#E1E1E1] text-[#0F6E56]">Grade A</th><th class="p-md font-table-header text-table-header border-b border-[#E1E1E1] text-[#1A7A5E]">Grade B</th><th class="p-md font-table-header text-table-header border-b border-[#E1E1E1] text-[#888888]">Grade C</th></tr>
+</thead>
+<tbody class="text-body-md">
+<tr class="bg-white"><td class="p-md border-b border-[#E1E1E1] font-semibold">Profondeur de gomme</td><td class="p-md border-b border-[#E1E1E1]">4mm - 6mm+</td><td class="p-md border-b border-[#E1E1E1]">3mm - 4mm</td><td class="p-md border-b border-[#E1E1E1]">2mm - 3mm</td></tr>
+<tr class="bg-[#F4FAF8]"><td class="p-md border-b border-[#E1E1E1] font-semibold">État visuel</td><td class="p-md border-b border-[#E1E1E1]">Comme neuf / Premium</td><td class="p-md border-b border-[#E1E1E1]">Marques de surface mineures</td><td class="p-md border-b border-[#E1E1E1]">Usure visible</td></tr>
+<tr class="bg-white"><td class="p-md border-b border-[#E1E1E1] font-semibold">Source</td><td class="p-md border-b border-[#E1E1E1]">Certifié Aliapur</td><td class="p-md border-b border-[#E1E1E1]">Certifié Aliapur</td><td class="p-md border-b border-[#E1E1E1]">Certifié Aliapur</td></tr>
+<tr class="bg-[#F4FAF8]"><td class="p-md border-b border-[#E1E1E1] font-semibold">Adaptabilité marché</td><td class="p-md border-b border-[#E1E1E1]">Revente Europe</td><td class="p-md border-b border-[#E1E1E1]">Marchés Export</td><td class="p-md border-b border-[#E1E1E1]">Export Budget</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- Process Section -->
+<section class="bg-[#F4FAF8] py-xl" id="process">
+<div class="max-w-[1280px] mx-auto px-8">
+<h2 class="font-h2 text-h2 text-on-surface mb-lg text-center">Comment ça marche</h2>
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-md">
+<div class="flex flex-col items-center text-center p-md bg-white rounded shadow-sm"><div class="w-16 h-16 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container mb-md"><span class="material-symbols-outlined text-3xl" data-icon="factory">factory</span></div><h4 class="font-h3 text-body-lg font-bold mb-xs">Sourcing</h4><p class="text-body-sm text-on-surface-variant">Approvisionnement direct via les réseaux Aliapur en Europe.</p></div>
+<div class="flex flex-col items-center text-center p-md bg-white rounded shadow-sm"><div class="w-16 h-16 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container mb-md"><span class="material-symbols-outlined text-3xl" data-icon="grading">grading</span></div><h4 class="font-h3 text-body-lg font-bold mb-xs">Tri</h4><p class="text-body-sm text-on-surface-variant">Tri manuel expert en Grades A, B et C.</p></div>
+<div class="flex flex-col items-center text-center p-md bg-white rounded shadow-sm"><div class="w-16 h-16 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container mb-md"><span class="material-symbols-outlined text-3xl" data-icon="inventory">inventory</span></div><h4 class="font-h3 text-body-lg font-bold mb-xs">Chargement</h4><p class="text-body-sm text-on-surface-variant">Emballage de conteneur optimisé pour un volume maximal.</p></div>
+<div class="flex flex-col items-center text-center p-md bg-white rounded shadow-sm"><div class="w-16 h-16 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container mb-md"><span class="material-symbols-outlined text-3xl" data-icon="public">public</span></div><h4 class="font-h3 text-body-lg font-bold mb-xs">Export</h4><p class="text-body-sm text-on-surface-variant">Documentation complète et gestion logistique.</p></div>
+</div>
+</div>
+</section>
+<!-- Markets Section -->
+<section class="bg-white py-xl" id="markets">
+<div class="max-w-[1280px] mx-auto px-8">
+<h2 class="font-h2 text-h2 text-on-surface mb-lg">Marchés desservis</h2>
+<div class="grid md:grid-cols-3 gap-md">
+<div class="border-t-4 border-[#0F6E56] bg-surface p-md rounded shadow-sm">
+<h4 class="font-h3 text-h3 mb-md">Afrique de l'Ouest</h4>
+<ul class="space-y-sm text-body-md text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span> Nigeria</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span> Ghana</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span> Ivory Coast</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span> Senegal</li>
+</ul>
+</div>
+<div class="border-t-4 border-[#0F6E56] bg-surface p-md rounded shadow-sm">
+<h4 class="font-h3 text-h3 mb-md">Afrique de l'Est</h4>
+<ul class="space-y-sm text-body-md text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span> Kenya</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span> Tanzania</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span> Uganda</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span> Ethiopia</li>
+</ul>
+</div>
+<div class="border-t-4 border-[#0F6E56] bg-surface p-md rounded shadow-sm">
+<h4 class="font-h3 text-h3 mb-md">Europe de l'Est</h4>
+<ul class="space-y-sm text-body-md text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span> Poland</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span> Romania</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span> Bulgaria</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span> Hungary</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="bg-[#F4FAF8] py-xl" id="contact">
+<div class="max-w-[800px] mx-auto px-8">
+<div class="text-center mb-lg">
+<h2 class="font-h2 text-h2 text-on-surface">Demande de devis / Request a Quote</h2>
+<p class="text-on-surface-variant mt-xs">Recevez une proposition personnalisée sous 24 heures.</p>
+</div>
+<div class="bg-white p-lg rounded-xl shadow-lg border border-[#E1E1E1]">
+<form class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="space-y-xs">
+<label class="font-label-caps text-label-caps block">Nom complet</label>
+<input class="w-full h-[48px] border-[#E1E1E1] rounded focus:ring-primary focus:border-primary text-body-sm" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-xs">
+<label class="font-label-caps text-label-caps block">Entreprise</label>
+<input class="w-full h-[48px] border-[#E1E1E1] rounded focus:ring-primary focus:border-primary text-body-sm" placeholder="Global Trade Ltd." type="text"/>
+</div>
+<div class="space-y-xs">
+<label class="font-label-caps text-label-caps block">Adresse Email</label>
+<input class="w-full h-[48px] border-[#E1E1E1] rounded focus:ring-primary focus:border-primary text-body-sm" placeholder="john@company.com" type="email"/>
+</div>
+<div class="space-y-xs">
+<label class="font-label-caps text-label-caps block">Pays cible</label>
+<input class="w-full h-[48px] border-[#E1E1E1] rounded focus:ring-primary focus:border-primary text-body-sm" placeholder="e.g., Nigeria" type="text"/>
+</div>
+<div class="md:col-span-2 space-y-sm">
+<label class="font-label-caps text-label-caps block">Type de pneu</label>
+<div class="flex flex-wrap gap-xs"><button class="px-4 py-2 border border-primary text-primary rounded-full text-xs font-bold bg-[#E1F5EE]" type="button">Tourisme</button><button class="px-4 py-2 border border-[#E1E1E1] text-on-surface-variant rounded-full text-xs font-bold hover:bg-surface" type="button">SUV / 4x4</button><button class="px-4 py-2 border border-[#E1E1E1] text-on-surface-variant rounded-full text-xs font-bold hover:bg-surface" type="button">Utilitaire</button><button class="px-4 py-2 border border-[#E1E1E1] text-on-surface-variant rounded-full text-xs font-bold hover:bg-surface" type="button">Mixte</button></div>
+</div>
+<div class="space-y-xs">
+<label class="font-label-caps text-label-caps block">Volume mensuel (Conteneurs)</label>
+<select class="w-full h-[48px] border-[#E1E1E1] rounded focus:ring-primary focus:border-primary text-body-sm"><option>Commande ponctuelle</option><option>Récurrent mensuel</option><option>Achat spot</option></select>
+</div>
+<div class="space-y-xs">
+<label class="font-label-caps text-label-caps block">Fréquence</label>
+<select class="w-full h-[48px] border-[#E1E1E1] rounded focus:ring-primary focus:border-primary text-body-sm"><option>Commande ponctuelle</option><option>Récurrent mensuel</option><option>Achat spot</option></select>
+</div>
+<div class="md:col-span-2 space-y-xs">
+<label class="font-label-caps text-label-caps block">Message additionnel</label>
+<textarea class="w-full border-[#E1E1E1] rounded focus:ring-primary focus:border-primary text-body-sm p-sm" placeholder="Besoins spécifiques ou questions..." rows="4"></textarea>
+</div>
+<div class="md:col-span-2">
+<button class="w-full bg-primary text-on-primary py-md rounded-lg font-bold text-body-md hover:opacity-95 transition-all active:scale-95 shadow-md" type="submit">Envoyer ma demande</button>
+</div>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#1A1F2E] text-[#E1F5EE] py-xl border-t border-slate-700">
+<div class="max-w-[1280px] mx-auto px-8 grid grid-cols-1 gap-xl md:grid-cols-3">
+<div class="space-y-md">
+<span class="text-white text-lg font-bold">SMAC Pneu</span>
+<p class="font-['Inter'] text-sm leading-relaxed text-slate-400">Votre partenaire de confiance pour l'export de pneus d'occasion à grande échelle depuis l'Europe vers le monde entier.</p>
+<div class="flex gap-4"><span class="text-white cursor-pointer hover:text-primary transition-colors">FR</span><span class="text-slate-600">|</span><span class="text-slate-400 cursor-pointer hover:text-primary transition-colors">EN</span></div>
+</div>
+<div>
+<h5 class="text-white font-bold mb-md">Quick Links</h5>
+<ul class="space-y-sm font-['Inter'] text-sm"><li><a class="text-slate-400 hover:text-[#0F6E56] transition-colors" href="#">Inventaire</a></li><li><a class="text-slate-400 hover:text-[#0F6E56] transition-colors" href="#">Processus</a></li><li><a class="text-slate-400 hover:text-[#0F6E56] transition-colors" href="#">Qualité</a></li><li><a class="text-slate-400 hover:text-[#0F6E56] transition-colors" href="#">Logistique</a></li></ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-md">Contact</h5>
+<ul class="space-y-sm font-['Inter'] text-sm text-slate-400">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-xs" data-icon="mail">mail</span> info@smacpneu.com</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-xs" data-icon="phone">phone</span> +33 (0) 1 23 45 67 89</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-xs" data-icon="location_on">location_on</span> Paris, France</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-xs">fingerprint</span> SIRET: 123 456 789 00012</li></ul>
+</div>
+</div>
+<div class="max-w-[1280px] mx-auto px-8 mt-xl pt-md border-t border-slate-800 text-center text-xs text-slate-500">© 2024 SMAC Pneu. Solutions d'exportation de pneus industriels. Tous droits réservés.</div>
+</footer>
+<!-- BottomNavBar / Sticky Bottom Bar -->
+<div class="fixed bottom-0 w-full z-50 bg-white dark:bg-slate-900 border-t border-[#E1E1E1] dark:border-slate-800 h-16 px-4 bg-opacity-95 backdrop-blur-sm shadow-[0px_-4px_20px_rgba(0,0,0,0.04)] md:hidden">
+<div class="flex justify-around items-center h-full"><a class="text-[#1A1F2E] dark:text-slate-400 flex items-center gap-2 font-['Inter'] text-[12px] font-bold uppercase tracking-wider" href="#offer"><span class="material-symbols-outlined" data-icon="info">info</span> Sommaire</a><a class="bg-[#E1F5EE] text-[#0F6E56] rounded-md px-6 py-2 flex items-center gap-2 font-['Inter'] text-[12px] font-bold uppercase tracking-wider" href="#contact"><span class="material-symbols-outlined" data-icon="send">send</span> Demander un devis</a></div>
+</div>
+<!-- Desktop Sticky Bottom Bar -->
+<div class="hidden md:flex fixed bottom-8 left-1/2 -translate-x-1/2 z-40 bg-[#1A1F2E] text-white px-lg py-sm rounded-full shadow-2xl items-center gap-lg border border-slate-700 backdrop-blur-md bg-opacity-90"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span class="text-sm font-semibold">10–50 conteneurs/mois disponibles</span></div><a class="bg-primary text-white px-md py-xs rounded-full text-sm font-bold flex items-center gap-1 hover:bg-[#1A7A5E] transition-colors" href="#contact">Demander un devis <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span></a></div>
+</body></html>

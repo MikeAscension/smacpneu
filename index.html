@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SMAC Pneu — Fournisseur européen de pneus d'occasion à l'export</title>
+  <meta name="description" content="Votre fournisseur européen de confiance pour l'export de pneus d'occasion. 10 à 50 conteneurs/mois, sourcing certifié Aliapur, documentation complète. Afrique & Europe de l'Est." />
+  <meta name="robots" content="index, follow" />
+  <link rel="alternate" hreflang="fr" href="/" />
+  <link rel="alternate" hreflang="en" href="/en/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --forest:   #0F6E56;
+      --charcoal: #1A1F2E;
+      --mist:     #E1F5EE;
+      --foam:     #F4FAF8;
+      --canopy:   #1A7A5E;
+      --stone:    #DDDDDD;
+      --slate:    #666666;
+      --ash:      #888888;
+      --nav-h:    72px;
+      --wrap:     1280px;
+    }
+
+    html { font-family: 'Inter', system-ui, sans-serif; color: var(--charcoal); scroll-behavior: smooth; }
+    body  { background: #fff; }
+    a     { color: inherit; }
+    img   { display: block; max-width: 100%; }
+
+    /* ── Utilities ─────────────────────────────────── */
+    .container { max-width: var(--wrap); margin: 0 auto; padding: 0 32px; }
+    section    { padding: 80px 0; }
+
+    .section-label {
+      font-size: 12px; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--forest); margin-bottom: 10px;
+    }
+    h2 { font-size: 32px; font-weight: 600; line-height: 1.25; color: var(--forest); }
+    h3 { font-size: 20px; font-weight: 600; line-height: 1.3;  color: var(--charcoal); }
+
+    .section-intro { font-size: 16px; line-height: 1.65; color: var(--slate); margin-top: 8px; }
+    .section-header { margin-bottom: 48px; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 24px; border-radius: 4px; font-size: 15px; font-weight: 600;
+      text-decoration: none; border: none; cursor: pointer; transition: opacity .15s, background .15s;
+      white-space: nowrap;
+    }
+    .btn-primary { background: var(--forest); color: #fff; }
+    .btn-primary:hover { opacity: .88; }
+    .btn-outline  { background: transparent; color: var(--forest); border: 1.5px solid var(--forest); }
+    .btn-outline:hover { background: var(--mist); }
+    .btn-lg { padding: 16px 32px; font-size: 16px; }
+
+    /* ── Navigation ────────────────────────────────── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: var(--nav-h); background: #fff; border-bottom: 1px solid #E1E1E1;
+    }
+    .nav__inner {
+      max-width: var(--wrap); margin: 0 auto; padding: 0 32px;
+      height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .nav__logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+    .nav__logo img { height: 44px; width: auto; }
+
+    .nav__links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav__links a {
+      font-size: 14px; font-weight: 500; letter-spacing: .02em;
+      text-decoration: none; color: var(--charcoal); transition: color .15s;
+    }
+    .nav__links a:hover { color: var(--forest); }
+
+    .nav__right { display: flex; align-items: center; gap: 20px; flex-shrink: 0; }
+
+    .lang-toggle { display: flex; align-items: center; gap: 2px; }
+    .lang-toggle button {
+      background: none; border: none; cursor: pointer;
+      padding: 5px 8px; border-radius: 4px;
+      font-size: 13px; font-weight: 700; color: var(--ash);
+      font-family: inherit; transition: color .15s, background .15s;
+    }
+    .lang-toggle button.active { color: var(--forest); background: var(--mist); }
+    .lang-toggle .sep { font-size: 13px; color: var(--stone); user-select: none; }
+
+    /* Hamburger */
+    .hamburger {
+      display: none; background: none; border: none; cursor: pointer;
+      padding: 8px; flex-direction: column; gap: 5px;
+    }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--charcoal); border-radius: 2px; transition: all .3s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; z-index: 199;
+      background: #fff; border-bottom: 1px solid #E1E1E1; padding: 8px 0 24px;
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu ul { list-style: none; }
+    .mobile-menu li { border-bottom: 1px solid #F0F0F0; }
+    .mobile-menu a {
+      display: block; padding: 14px 24px;
+      font-size: 15px; font-weight: 500; text-decoration: none; color: var(--charcoal);
+    }
+    .mobile-menu__foot { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px 0; }
+
+    main { padding-top: var(--nav-h); }
+
+    /* ── Hero ──────────────────────────────────────── */
+    .hero { background: #fff; padding: 72px 0 64px; }
+    .hero__inner {
+      max-width: var(--wrap); margin: 0 auto; padding: 0 32px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .hero h1 {
+      font-size: 48px; font-weight: 700; line-height: 1.15; color: var(--charcoal); margin-bottom: 20px;
+    }
+    .hero__lead { font-size: 18px; line-height: 1.65; color: var(--slate); max-width: 520px; }
+    .hero__cta  { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .hero__badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 12px; background: var(--mist); color: var(--forest);
+      font-size: 12px; font-weight: 600; letter-spacing: .04em; border-radius: 100px;
+    }
+    .badge svg { flex-shrink: 0; }
+
+    .hero__visual {
+      aspect-ratio: 4/3; border-radius: 8px; overflow: hidden; background: var(--foam);
+    }
+    .hero__visual img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* Placeholder when hero image fails */
+    .hero__visual--placeholder {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 16px; color: var(--forest);
+    }
+    .hero__visual--placeholder svg { opacity: .25; }
+    .hero__visual--placeholder span { font-size: 13px; color: var(--slate); }
+
+    /* ── Offer cards ───────────────────────────────── */
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .card {
+      background: #fff; border: 1px solid #F0F0F0; border-radius: 4px;
+      overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,.04); transition: border-color .2s;
+    }
+    .card:hover { border-color: var(--forest); }
+    .card__img { height: 200px; background: var(--foam); overflow: hidden; }
+    .card__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+    .card:hover .card__img img { transform: scale(1.04); }
+    .card__body { padding: 24px; }
+    .card__body h3 { margin-bottom: 8px; }
+    .card__desc { font-size: 14px; line-height: 1.55; color: var(--slate); margin-bottom: 16px; }
+    .card__list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .card__list li { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--charcoal); }
+    .card__list svg { flex-shrink: 0; color: var(--forest); }
+
+    /* ── Quality table ─────────────────────────────── */
+    .table-wrap { overflow-x: auto; border-radius: 4px; border: 1px solid #E1E1E1; }
+    table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    th {
+      padding: 14px 20px; font-size: 13px; font-weight: 700; text-align: left;
+      background: var(--foam); border-bottom: 2px solid #E1E1E1; white-space: nowrap;
+    }
+    th.ga { color: var(--forest); }
+    th.gb { color: var(--canopy); }
+    th.gc { color: var(--ash); }
+    td { padding: 14px 20px; border-bottom: 1px solid #E1E1E1; line-height: 1.45; }
+    td.lbl { font-weight: 600; }
+    tr:nth-child(even) td { background: var(--foam); }
+    tbody tr:last-child td { border-bottom: none; }
+
+    /* ── Process steps ─────────────────────────────── */
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .step { background: #fff; border-radius: 4px; padding: 32px 24px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+    .step__num {
+      font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--forest); margin-bottom: 16px;
+    }
+    .step__icon {
+      width: 60px; height: 60px; border-radius: 50%;
+      background: var(--mist); display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px; color: var(--forest);
+    }
+    .step h4 { font-size: 17px; font-weight: 700; color: var(--charcoal); margin-bottom: 10px; }
+    .step p  { font-size: 14px; line-height: 1.6; color: var(--slate); }
+
+    /* ── Markets ───────────────────────────────────── */
+    .markets { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .market {
+      border-top: 4px solid var(--forest); background: var(--foam); border-radius: 4px; padding: 28px 24px;
+    }
+    .market h4 { font-size: 18px; font-weight: 600; color: var(--charcoal); margin-bottom: 20px; }
+    .market ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .market li { display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--slate); }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--forest); flex-shrink: 0; }
+
+    /* ── RFQ form ──────────────────────────────────── */
+    .form-wrap { max-width: 800px; margin: 0 auto; }
+    .form-card {
+      background: #fff; border: 1px solid #E1E1E1; border-radius: 8px; padding: 48px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.06);
+    }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .fg { display: flex; flex-direction: column; gap: 6px; }
+    .fg.full { grid-column: 1 / -1; }
+
+    label {
+      font-size: 12px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
+      color: var(--charcoal);
+    }
+    input, select, textarea {
+      font-family: inherit; font-size: 14px; color: var(--charcoal);
+      border: 1px solid var(--stone); border-radius: 4px;
+      padding: 0 14px; height: 48px; width: 100%;
+      outline: none; transition: border-color .15s; background: #fff;
+      appearance: none; -webkit-appearance: none;
+    }
+    select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+    textarea { height: auto; padding: 12px 14px; resize: vertical; }
+    input:focus, select:focus, textarea:focus { border-color: var(--forest); box-shadow: 0 0 0 3px rgba(15,110,86,.08); }
+    input::placeholder, textarea::placeholder { color: var(--ash); }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+    .chip {
+      padding: 8px 18px; border-radius: 100px; font-size: 13px; font-weight: 600;
+      border: 1.5px solid var(--stone); color: var(--slate); background: #fff;
+      cursor: pointer; font-family: inherit; transition: all .15s;
+    }
+    .chip:hover, .chip.active {
+      border-color: var(--forest); color: var(--forest); background: var(--mist);
+    }
+
+    .btn-submit {
+      width: 100%; padding: 16px; background: var(--forest); color: #fff;
+      font-family: inherit; font-size: 16px; font-weight: 700;
+      border: none; border-radius: 4px; cursor: pointer; transition: opacity .15s; margin-top: 8px;
+    }
+    .btn-submit:hover { opacity: .88; }
+
+    .form-success {
+      display: none; text-align: center; padding: 56px 24px;
+    }
+    .form-success__icon {
+      width: 60px; height: 60px; border-radius: 50%; background: var(--mist);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px; color: var(--forest);
+    }
+    .form-success h3 { font-size: 22px; color: var(--forest); margin-bottom: 12px; }
+    .form-success p  { font-size: 15px; color: var(--slate); line-height: 1.6; }
+
+    /* ── Footer ────────────────────────────────────── */
+    footer { background: var(--charcoal); color: #E1E1E1; padding: 64px 0 0; }
+    .footer__inner {
+      max-width: var(--wrap); margin: 0 auto; padding: 0 32px 56px;
+      display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px;
+    }
+    .footer__brand img { height: 40px; width: auto; filter: brightness(0) invert(1); margin-bottom: 20px; }
+    .footer__brand p { font-size: 14px; line-height: 1.65; color: #9CA3AF; max-width: 340px; }
+    .footer__lang { display: flex; gap: 4px; margin-top: 20px; }
+    .footer__lang button {
+      background: none; border: none; cursor: pointer;
+      font-size: 13px; font-weight: 700; color: #6B7280;
+      padding: 5px 9px; border-radius: 4px; font-family: inherit; transition: all .15s;
+    }
+    .footer__lang button.active { color: #fff; background: rgba(255,255,255,.1); }
+    .footer__lang .sep { font-size: 13px; color: #374151; user-select: none; padding: 5px 2px; }
+
+    .footer__col h5 {
+      font-size: 11px; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: #fff; margin-bottom: 20px;
+    }
+    .footer__col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer__col a { font-size: 14px; color: #9CA3AF; text-decoration: none; transition: color .15s; }
+    .footer__col a:hover { color: var(--forest); }
+    .contact-row { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #9CA3AF; }
+    .contact-row svg { flex-shrink: 0; opacity: .6; }
+
+    .footer__bottom {
+      max-width: var(--wrap); margin: 0 auto; padding: 20px 32px;
+      border-top: 1px solid rgba(255,255,255,.07);
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 12px; color: #6B7280;
+    }
+
+    /* ── Floating pill (desktop) ───────────────────── */
+    .pill {
+      position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%);
+      z-index: 150; background: var(--charcoal); color: #fff;
+      padding: 12px 16px 12px 20px; border-radius: 100px;
+      display: flex; align-items: center; gap: 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.22); white-space: nowrap;
+      transition: opacity .3s;
+    }
+    .pill__text { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 500; }
+    .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--forest); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+    .pill a {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 9px 18px; background: var(--forest); color: #fff;
+      font-size: 13px; font-weight: 700; text-decoration: none; border-radius: 100px;
+      transition: background .15s;
+    }
+    .pill a:hover { background: var(--canopy); }
+    .pill a svg { margin-left: 2px; }
+
+    /* ── Mobile bar ────────────────────────────────── */
+    .mobile-bar {
+      display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 150;
+      background: rgba(255,255,255,.96); backdrop-filter: blur(8px);
+      border-top: 1px solid #E1E1E1; padding: 12px 20px;
+    }
+    .mobile-bar a {
+      display: flex; align-items: center; justify-content: center;
+      width: 100%; padding: 15px; background: var(--forest); color: #fff;
+      font-size: 15px; font-weight: 700; text-decoration: none; border-radius: 4px;
+    }
+
+    /* ── Responsive ────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .hero h1 { font-size: 40px; }
+      .hero__inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero__visual { max-width: 580px; }
+      .steps { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      section { padding: 56px 0; }
+      .container { padding: 0 20px; }
+
+      .nav__inner { padding: 0 20px; }
+      .nav__links, .nav__right .lang-toggle, .nav__right .btn { display: none; }
+      .hamburger { display: flex; }
+
+      .hero { padding: 48px 0 40px; }
+      .hero__inner { padding: 0 20px; gap: 32px; }
+      .hero h1 { font-size: 30px; }
+      .hero__lead { font-size: 16px; }
+      .hero__visual { display: none; }
+
+      h2 { font-size: 26px; }
+      .section-header { margin-bottom: 32px; }
+
+      .cards { grid-template-columns: 1fr; }
+      .markets { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr 1fr; gap: 16px; }
+
+      .form-card { padding: 24px 20px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .fg.full { grid-column: 1; }
+
+      .footer__inner { grid-template-columns: 1fr; gap: 32px; padding: 0 20px 48px; }
+      .footer__bottom { flex-direction: column; gap: 8px; text-align: center; padding: 20px; }
+
+      .pill { display: none; }
+      .mobile-bar { display: block; }
+      footer { padding-bottom: 72px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 26px; }
+      .steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── Navigation ──────────────────────────────────── -->
+<header class="nav" role="banner">
+  <nav class="nav__inner" aria-label="Navigation principale">
+    <a href="#" class="nav__logo" aria-label="SMAC Pneu — Accueil">
+      <img src="logo.png" alt="SMAC Pneu" height="44" />
+    </a>
+
+    <ul class="nav__links" role="list">
+      <li><a href="#offre"     data-fr="Offre"      data-en="Products">Offre</a></li>
+      <li><a href="#qualite"   data-fr="Qualité"    data-en="Quality">Qualité</a></li>
+      <li><a href="#processus" data-fr="Processus"  data-en="How It Works">Processus</a></li>
+      <li><a href="#marches"   data-fr="Marchés"    data-en="Markets">Marchés</a></li>
+      <li><a href="#contact"   data-fr="Contact"    data-en="Contact">Contact</a></li>
+    </ul>
+
+    <div class="nav__right">
+      <div class="lang-toggle" role="group" aria-label="Langue / Language">
+        <button class="active" data-lang="fr" onclick="setLang('fr')">FR</button>
+        <span class="sep">|</span>
+        <button data-lang="en" onclick="setLang('en')">EN</button>
+      </div>
+      <a href="#contact" class="btn btn-primary"
+         data-fr="Demander un devis" data-en="Request a Quote">Demander un devis</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#offre"     onclick="closeMenu()" data-fr="Offre"     data-en="Products">Offre</a></li>
+    <li><a href="#qualite"   onclick="closeMenu()" data-fr="Qualité"   data-en="Quality">Qualité</a></li>
+    <li><a href="#processus" onclick="closeMenu()" data-fr="Processus" data-en="How It Works">Processus</a></li>
+    <li><a href="#marches"   onclick="closeMenu()" data-fr="Marchés"   data-en="Markets">Marchés</a></li>
+    <li><a href="#contact"   onclick="closeMenu()" data-fr="Contact"   data-en="Contact">Contact</a></li>
+  </ul>
+  <div class="mobile-menu__foot">
+    <div class="lang-toggle">
+      <button class="active" data-lang="fr" onclick="setLang('fr')">FR</button>
+      <span class="sep">|</span>
+      <button data-lang="en" onclick="setLang('en')">EN</button>
+    </div>
+    <a href="#contact" class="btn btn-primary" onclick="closeMenu()"
+       data-fr="Demander un devis" data-en="Request a Quote">Demander un devis</a>
+  </div>
+</div>
+
+<main>
+
+  <!-- ─── Hero ──────────────────────────────────────── -->
+  <section class="hero" id="accueil" aria-label="Présentation">
+    <div class="hero__inner">
+      <div>
+        <p class="section-label" data-fr="Sourcing certifié Aliapur · France" data-en="Aliapur Certified Sourcing · France">Sourcing certifié Aliapur · France</p>
+        <h1 data-fr="Votre fournisseur européen de confiance pour les pneus d'occasion" data-en="Your Trusted European Supplier for Used Tires">Votre fournisseur européen de confiance pour les pneus d'occasion</h1>
+        <p class="hero__lead" data-fr="Solutions d'exportation industrielle à haut volume depuis la France — 10 à 50 conteneurs par mois de pneus certifiés Aliapur, avec documentation export complète et traçabilité garantie." data-en="High-volume industrial export solutions from France — 10 to 50 containers per month of Aliapur-certified tires, with complete export documentation and guaranteed traceability.">Solutions d'exportation industrielle à haut volume depuis la France — 10 à 50 conteneurs par mois de pneus certifiés Aliapur, avec documentation export complète et traçabilité garantie.</p>
+        <div class="hero__cta">
+          <a href="#contact" class="btn btn-primary btn-lg"
+             data-fr="Demander un devis" data-en="Request a Quote">Demander un devis</a>
+          <a href="#offre" class="btn btn-outline btn-lg"
+             data-fr="Voir l'offre" data-en="View Products">Voir l'offre</a>
+        </div>
+        <div class="hero__badges">
+          <span class="badge">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span data-fr="Réponse sous 24h" data-en="Response within 24h">Réponse sous 24h</span>
+          </span>
+          <span class="badge">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            <span data-fr="10–50 conteneurs/mois" data-en="10–50 containers/month">10–50 conteneurs/mois</span>
+          </span>
+          <span class="badge">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span data-fr="Certifié Aliapur" data-en="Aliapur Certified">Certifié Aliapur</span>
+          </span>
+          <span class="badge">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <span data-fr="Docs export inclus" data-en="Export Docs Included">Docs export inclus</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="hero__visual" aria-hidden="true">
+        <img
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAC5yRMOOXxnYvTm12GU5ov2DKV2rn_icJB6ZWejXq_6jMjGQafEmWEJT2jnnUxRNtrcrniMrvLGzdxLr0r1AOn0Ikt8jhvomE9Icckjv433za_h-bYGlSb6CQHGJISKCEautKv1HeHm0g6m_bvHkBKVzGJlw-p9EpD15ETKg_kcVPpBYg_9t8TOnue6Be49uyZIxI8ppzwgPhon4bD9_DHAJMvssrXShitKIt0dhInDhsocNZI0H9OyGQT5rGTx7hu3x2fJAN7cA"
+          alt="Entrepôt industriel avec pneus d'occasion certifiés triés pour l'export"
+          loading="eager"
+          onerror="this.parentElement.classList.add('hero__visual--placeholder'); this.style.display='none'; this.parentElement.innerHTML='<svg width=80 height=80 viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1&quot; stroke-linecap=&quot;round&quot;><circle cx=12 cy=12 r=10/><circle cx=12 cy=12 r=4/></svg><span>Photo produit à intégrer</span>'"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Offer ──────────────────────────────────────── -->
+  <section id="offre" style="background:var(--foam)">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label" data-fr="Notre inventaire" data-en="Our Inventory">Notre inventaire</p>
+        <h2 data-fr="Ce que nous fournissons" data-en="What We Supply">Ce que nous fournissons</h2>
+        <p class="section-intro" data-fr="Pneus d'occasion certifiés, triés et documentés — prêts pour l'export international." data-en="Certified used tires, sorted and documented — ready for international export.">Pneus d'occasion certifiés, triés et documentés — prêts pour l'export international.</p>
+      </div>
+
+      <div class="cards">
+        <!-- Passenger -->
+        <article class="card">
+          <div class="card__img">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMjSXwENQtQqMTbUf_LlXVafe3YlgwC3e-98ervkL4sokbFzYuHdGTl-alIkIqZ2BXKoUhUUwvntG0d570nz-IZxC6nOkjGasT7TmTSvqSSM49cbn-8j5f2HQbwbQYG_FohQBJjVWhChybdjnWRDrRlpMcwPaCThJAOvARjN4cLR0qO9P35lGC6sCG54k1jMwWuBShNdzv_zft0OaBVIb7nYU5cCZ09UHmP_hlMlBfXUl7lD3q0yRAghPM2s9KVp4v5a9-McJJSQ"
+              alt="Pneu tourisme d'occasion — certifié Aliapur" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <h3 data-fr="Pneus Tourisme" data-en="Passenger Tires">Pneus Tourisme</h3>
+            <p class="card__desc" data-fr='Tailles standard de 13" à 17", triées pour une utilité maximale. Stocks certifiés Aliapur.' data-en='Standard sizes 13" to 17", sorted for maximum utility. Aliapur certified stock.'>Tailles standard de 13" à 17", triées pour une utilité maximale. Stocks certifiés Aliapur.</p>
+            <ul class="card__list">
+              <li>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span data-fr="Grande profondeur de gomme" data-en="High tread depth">Grande profondeur de gomme</span>
+              </li>
+              <li>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span data-fr="Grandes marques disponibles" data-en="Major brands available">Grandes marques disponibles</span>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- SUV -->
+        <article class="card">
+          <div class="card__img">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgkSTe1H7jBOpBTfMSMm06t2q5rQRLpCvtEcr2ICWt11TYO6nFN-RTEO2T0Tq1CKyCjLSWv9J0-c9imyTE0L1klsLz9w3UMuG4TV3mZqIJJAde8Ys1jwEgOe9xpj_Z-rpgBRl4ZSQ4DlTSJEvEeb_BG3UiXg178I2guT-zD1HzXmCwuf8KuYIENCURzvqhNf1C66_3YBhxcJGQM-wDy42gQNxtQrt9W5xZQoBXdHGAFmszyyqyViAlOO2Tl7OUpt1cU8fQ3OM7ag"
+              alt="Pneu SUV 4x4 d'occasion — certifié Aliapur" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <h3 data-fr="SUV &amp; 4x4" data-en="SUV &amp; 4x4">SUV &amp; 4x4</h3>
+            <p class="card__desc" data-fr='Options durables pour jantes de 16" à 20", adaptées aux terrains difficiles. Certifiés Aliapur.' data-en='Durable options for 16" to 20" rims, suited for demanding terrain. Aliapur certified.'>Options durables pour jantes de 16" à 20", adaptées aux terrains difficiles. Certifiés Aliapur.</p>
+            <ul class="card__list">
+              <li>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span data-fr="Flancs renforcés" data-en="Reinforced sidewalls">Flancs renforcés</span>
+              </li>
+              <li>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span data-fr="Profils tout-terrain disponibles" data-en="All-terrain profiles available">Profils tout-terrain disponibles</span>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- LCV -->
+        <article class="card">
+          <div class="card__img">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBQY3tckKRzFzDwDZGknQddNxrApV3OQwNRFxglD4DHMUVYVWbP3d_kLvzvtowVYYmjkhYRfMlGplhwQFb91xiFgTm5ahiwACgI37SemOSx3Hk7Q6Etxw6oTBYj9kVN_gkt6JpZYdfAjMOTD2jbWiRitgKgvC3VF4Z-riFkRoPTuTTRa9dl-B9yu7o4bVTpUd_DByt_pWFNPHPsechXGkE_R7FrPW0StzCpugIL0O7yXxwvG0o88UhWT00vd8CCubvbygpADCwA"
+              alt="Pneu véhicule utilitaire léger d'occasion — certifié Aliapur" loading="lazy" />
+          </div>
+          <div class="card__body">
+            <h3 data-fr="Véhicules Utilitaires" data-en="Light Commercial">Véhicules Utilitaires</h3>
+            <p class="card__desc" data-fr="Pneus certifiés Aliapur pour VUL, conçus pour un usage intensif à l'export." data-en="Aliapur-certified tires for LCVs, built for intensive export use.">Pneus certifiés Aliapur pour VUL, conçus pour un usage intensif à l'export.</p>
+            <ul class="card__list">
+              <li>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span data-fr="Indice de charge élevé" data-en="High load index">Indice de charge élevé</span>
+              </li>
+              <li>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span data-fr="Durabilité longue distance" data-en="Long-distance durability">Durabilité longue distance</span>
+              </li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Quality ────────────────────────────────────── -->
+  <section id="qualite" style="background:#fff">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label" data-fr="Protocoles de tri" data-en="Sorting Protocols">Protocoles de tri</p>
+        <h2 data-fr="Nos niveaux de qualité" data-en="Our Quality Grades">Nos niveaux de qualité</h2>
+        <p class="section-intro" data-fr="Chaque pneu est inspecté et classé manuellement. Aucune ambiguïté pour l'acheteur." data-en="Every tire is manually inspected and graded. No ambiguity for the buyer.">Chaque pneu est inspecté et classé manuellement. Aucune ambiguïté pour l'acheteur.</p>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th data-fr="Caractéristique" data-en="Characteristic">Caractéristique</th>
+              <th class="ga">Grade A</th>
+              <th class="gb">Grade B</th>
+              <th class="gc">Grade C</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="lbl" data-fr="Profondeur de gomme" data-en="Tread Depth">Profondeur de gomme</td>
+              <td>≥ 5 mm</td>
+              <td>3 – 5 mm</td>
+              <td>2 – 3 mm</td>
+            </tr>
+            <tr>
+              <td class="lbl" data-fr="État visuel" data-en="Visual Condition">État visuel</td>
+              <td data-fr="Excellent — comme neuf" data-en="Excellent — like new">Excellent — comme neuf</td>
+              <td data-fr="Marques de surface mineures" data-en="Minor surface marks">Marques de surface mineures</td>
+              <td data-fr="Usure visible" data-en="Visible wear">Usure visible</td>
+            </tr>
+            <tr>
+              <td class="lbl" data-fr="Traçabilité" data-en="Traceability">Traçabilité</td>
+              <td data-fr="Certifié Aliapur" data-en="Aliapur Certified">Certifié Aliapur</td>
+              <td data-fr="Certifié Aliapur" data-en="Aliapur Certified">Certifié Aliapur</td>
+              <td data-fr="Certifié Aliapur" data-en="Aliapur Certified">Certifié Aliapur</td>
+            </tr>
+            <tr>
+              <td class="lbl" data-fr="Marchés adaptés" data-en="Target Markets">Marchés adaptés</td>
+              <td data-fr="Revente premium" data-en="Premium resale">Revente premium</td>
+              <td data-fr="Export Afrique / Europe de l'Est" data-en="Africa / Eastern Europe export">Export Afrique / Europe de l'Est</td>
+              <td data-fr="Export économique" data-en="Budget export">Export économique</td>
+            </tr>
+            <tr>
+              <td class="lbl" data-fr="Documentation incluse" data-en="Documentation Included">Documentation incluse</td>
+              <td data-fr="Oui" data-en="Yes">Oui</td>
+              <td data-fr="Oui" data-en="Yes">Oui</td>
+              <td data-fr="Oui" data-en="Yes">Oui</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Process ───────────────────────────────────── -->
+  <section id="processus" style="background:var(--foam)">
+    <div class="container">
+      <div class="section-header" style="text-align:center">
+        <p class="section-label" data-fr="Notre méthode" data-en="Our Method">Notre méthode</p>
+        <h2 data-fr="Du sourcing à l'expédition" data-en="From Sourcing to Shipment">Du sourcing à l'expédition</h2>
+        <p class="section-intro" style="max-width:560px;margin-left:auto;margin-right:auto" data-fr="Un processus industriel rigoureux, du centre de tri jusqu'au port de destination." data-en="A rigorous industrial process, from the sorting centre to the destination port.">Un processus industriel rigoureux, du centre de tri jusqu'au port de destination.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <p class="step__num">01</p>
+          <div class="step__icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h4 data-fr="Sourcing" data-en="Sourcing">Sourcing</h4>
+          <p data-fr="Approvisionnement direct via les réseaux de sous-traitants Aliapur en France et en Europe." data-en="Direct procurement via Aliapur's subcontractor networks in France and Europe.">Approvisionnement direct via les réseaux de sous-traitants Aliapur en France et en Europe.</p>
+        </div>
+        <div class="step">
+          <p class="step__num">02</p>
+          <div class="step__icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <h4 data-fr="Tri qualité" data-en="Quality Sorting">Tri qualité</h4>
+          <p data-fr="Inspection et classement manuel en grades A, B et C par nos équipes spécialisées." data-en="Manual inspection and classification into grades A, B, and C by our specialist teams.">Inspection et classement manuel en grades A, B et C par nos équipes spécialisées.</p>
+        </div>
+        <div class="step">
+          <p class="step__num">03</p>
+          <div class="step__icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <h4 data-fr="Chargement" data-en="Loading">Chargement</h4>
+          <p data-fr="Optimisation du chargement conteneur 20' ou 40' pour un volume et une densité maximaux." data-en="Optimised container loading (20' or 40') for maximum volume and density.">Optimisation du chargement conteneur 20' ou 40' pour un volume et une densité maximaux.</p>
+        </div>
+        <div class="step">
+          <p class="step__num">04</p>
+          <div class="step__icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h4 data-fr="Export" data-en="Export">Export</h4>
+          <p data-fr="Documentation complète — connaissement, certificats, douane — et suivi logistique jusqu'à destination." data-en="Complete documentation — bill of lading, certificates, customs — and logistics tracking to destination.">Documentation complète — connaissement, certificats, douane — et suivi logistique jusqu'à destination.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Markets ───────────────────────────────────── -->
+  <section id="marches" style="background:#fff">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label" data-fr="Zones desservies" data-en="Coverage Areas">Zones desservies</p>
+        <h2 data-fr="Marchés desservis" data-en="Markets We Serve">Marchés desservis</h2>
+        <p class="section-intro" data-fr="Livraisons régulières sur trois zones géographiques à fort potentiel d'import." data-en="Regular deliveries across three high-import geographic zones.">Livraisons régulières sur trois zones géographiques à fort potentiel d'import.</p>
+      </div>
+
+      <div class="markets">
+        <div class="market">
+          <h4 data-fr="Afrique de l'Ouest" data-en="West Africa">Afrique de l'Ouest</h4>
+          <ul>
+            <li><span class="dot"></span><span data-fr="Sénégal" data-en="Senegal">Sénégal</span></li>
+            <li><span class="dot"></span><span data-fr="Côte d'Ivoire" data-en="Ivory Coast">Côte d'Ivoire</span></li>
+            <li><span class="dot"></span>Ghana</li>
+            <li><span class="dot"></span>Nigeria</li>
+            <li><span class="dot"></span>Togo</li>
+          </ul>
+        </div>
+        <div class="market">
+          <h4 data-fr="Afrique de l'Est" data-en="East Africa">Afrique de l'Est</h4>
+          <ul>
+            <li><span class="dot"></span>Kenya</li>
+            <li><span class="dot"></span>Tanzania</li>
+            <li><span class="dot"></span>Uganda</li>
+            <li><span class="dot"></span><span data-fr="Éthiopie" data-en="Ethiopia">Éthiopie</span></li>
+            <li><span class="dot"></span>Rwanda</li>
+          </ul>
+        </div>
+        <div class="market">
+          <h4 data-fr="Europe de l'Est" data-en="Eastern Europe">Europe de l'Est</h4>
+          <ul>
+            <li><span class="dot"></span><span data-fr="Pologne" data-en="Poland">Pologne</span></li>
+            <li><span class="dot"></span><span data-fr="Roumanie" data-en="Romania">Roumanie</span></li>
+            <li><span class="dot"></span><span data-fr="Bulgarie" data-en="Bulgaria">Bulgarie</span></li>
+            <li><span class="dot"></span><span data-fr="Hongrie" data-en="Hungary">Hongrie</span></li>
+            <li><span class="dot"></span>Ukraine</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Contact / RFQ ─────────────────────────────── -->
+  <section id="contact" style="background:var(--foam)">
+    <div class="container">
+      <div class="section-header" style="text-align:center;max-width:580px;margin-left:auto;margin-right:auto;margin-bottom:48px">
+        <p class="section-label" data-fr="Demande de devis" data-en="Request for Quote">Demande de devis</p>
+        <h2 data-fr="Obtenir un devis personnalisé" data-en="Get a Custom Quote">Obtenir un devis personnalisé</h2>
+        <p class="section-intro" data-fr="Remplissez le formulaire — nous vous répondons sous 24 à 48 heures avec une proposition commerciale adaptée." data-en="Fill in the form — we respond within 24 to 48 hours with a tailored commercial proposal.">Remplissez le formulaire — nous vous répondons sous 24 à 48 heures avec une proposition commerciale adaptée.</p>
+      </div>
+
+      <div class="form-wrap">
+        <div class="form-card">
+          <form id="rfqForm" class="form-grid" novalidate>
+            <div class="fg">
+              <label for="name" data-fr="Nom complet" data-en="Full Name">Nom complet</label>
+              <input type="text" id="name" name="name"
+                     data-fr-placeholder="Jean Dupont" data-en-placeholder="John Doe"
+                     placeholder="Jean Dupont" required />
+            </div>
+            <div class="fg">
+              <label for="company" data-fr="Entreprise" data-en="Company">Entreprise</label>
+              <input type="text" id="company" name="company"
+                     data-fr-placeholder="SARL Pneus Import" data-en-placeholder="Global Tire Ltd."
+                     placeholder="SARL Pneus Import" required />
+            </div>
+            <div class="fg">
+              <label for="email" data-fr="Adresse email" data-en="Email Address">Adresse email</label>
+              <input type="email" id="email" name="email"
+                     data-fr-placeholder="jean@entreprise.com" data-en-placeholder="john@company.com"
+                     placeholder="jean@entreprise.com" required />
+            </div>
+            <div class="fg">
+              <label for="country" data-fr="Pays de destination" data-en="Destination Country">Pays de destination</label>
+              <input type="text" id="country" name="country"
+                     data-fr-placeholder="ex. Sénégal" data-en-placeholder="e.g. Nigeria"
+                     placeholder="ex. Sénégal" required />
+            </div>
+
+            <div class="fg full">
+              <label data-fr="Type de pneus" data-en="Tire Type">Type de pneus</label>
+              <div class="chips" role="group">
+                <button type="button" class="chip active" data-value="tourisme"
+                        data-fr="Tourisme" data-en="Passenger">Tourisme</button>
+                <button type="button" class="chip" data-value="suv"
+                        data-fr="SUV / 4x4" data-en="SUV / 4x4">SUV / 4x4</button>
+                <button type="button" class="chip" data-value="utilitaire"
+                        data-fr="Utilitaire" data-en="Light Commercial">Utilitaire</button>
+                <button type="button" class="chip" data-value="mixte"
+                        data-fr="Mixte" data-en="Mixed">Mixte</button>
+              </div>
+            </div>
+
+            <div class="fg">
+              <label for="volume" data-fr="Volume mensuel (conteneurs)" data-en="Monthly Volume (containers)">Volume mensuel (conteneurs)</label>
+              <select id="volume" name="volume">
+                <option value="1-5"   data-fr="1 à 5 conteneurs"    data-en="1 to 5 containers">1 à 5 conteneurs</option>
+                <option value="5-15"  data-fr="5 à 15 conteneurs"   data-en="5 to 15 containers">5 à 15 conteneurs</option>
+                <option value="15-30" data-fr="15 à 30 conteneurs"  data-en="15 to 30 containers">15 à 30 conteneurs</option>
+                <option value="30-50" data-fr="30 à 50 conteneurs"  data-en="30 to 50 containers">30 to 50 conteneurs</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label for="frequency" data-fr="Fréquence" data-en="Frequency">Fréquence</label>
+              <select id="frequency" name="frequency">
+                <option value="spot"      data-fr="Achat ponctuel"   data-en="One-time purchase">Achat ponctuel</option>
+                <option value="monthly"   data-fr="Mensuel"          data-en="Monthly">Mensuel</option>
+                <option value="quarterly" data-fr="Trimestriel"      data-en="Quarterly">Trimestriel</option>
+              </select>
+            </div>
+
+            <div class="fg full">
+              <label for="message" data-fr="Message (optionnel)" data-en="Message (optional)">Message (optionnel)</label>
+              <textarea id="message" name="message" rows="4"
+                        data-fr-placeholder="Précisez vos besoins : grades souhaités, tailles, délais..."
+                        data-en-placeholder="Describe your needs: preferred grades, sizes, lead times..."
+                        placeholder="Précisez vos besoins : grades souhaités, tailles, délais..."></textarea>
+            </div>
+
+            <div class="fg full">
+              <button type="submit" class="btn-submit"
+                      data-fr="Envoyer ma demande" data-en="Send My Request">Envoyer ma demande</button>
+            </div>
+          </form>
+
+          <div class="form-success" id="formSuccess">
+            <div class="form-success__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <h3 data-fr="Demande envoyée !" data-en="Request Sent!">Demande envoyée !</h3>
+            <p data-fr="Nous vous répondrons sous 24 à 48 heures avec une proposition commerciale personnalisée." data-en="We will get back to you within 24 to 48 hours with a tailored commercial proposal.">Nous vous répondrons sous 24 à 48 heures avec une proposition commerciale personnalisée.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ─── Footer ───────────────────────────────────────── -->
+<footer>
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <img src="logo.png" alt="SMAC Pneu" height="40" />
+      <p data-fr="Votre partenaire de confiance pour l'export de pneus d'occasion certifiés à grande échelle, depuis la France vers l'Afrique et l'Europe de l'Est." data-en="Your trusted partner for large-scale certified used tire exports from France to Africa and Eastern Europe.">Votre partenaire de confiance pour l'export de pneus d'occasion certifiés à grande échelle, depuis la France vers l'Afrique et l'Europe de l'Est.</p>
+      <div class="footer__lang">
+        <button class="active" data-lang="fr" onclick="setLang('fr')">FR</button>
+        <span class="sep">|</span>
+        <button data-lang="en" onclick="setLang('en')">EN</button>
+      </div>
+    </div>
+
+    <div class="footer__col">
+      <h5 data-fr="Navigation" data-en="Navigation">Navigation</h5>
+      <ul>
+        <li><a href="#offre"     data-fr="Notre offre"       data-en="Our Products">Notre offre</a></li>
+        <li><a href="#qualite"   data-fr="Qualité"           data-en="Quality Grades">Qualité</a></li>
+        <li><a href="#processus" data-fr="Processus"         data-en="How It Works">Processus</a></li>
+        <li><a href="#marches"   data-fr="Marchés"           data-en="Markets">Marchés</a></li>
+        <li><a href="#contact"   data-fr="Demander un devis" data-en="Request a Quote">Demander un devis</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h5>Contact</h5>
+      <ul>
+        <li class="contact-row">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          info@smacpneu.com
+        </li>
+        <li class="contact-row">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.42a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 3h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 10.5a16 16 0 0 0 6 6l.91-1.05a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17.92"/></svg>
+          +33 1 23 45 67 89
+        </li>
+        <li class="contact-row">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Paris, France
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <span data-fr="© 2026 SMAC Pneu — Export de pneus d'occasion depuis la France." data-en="© 2026 SMAC Pneu — Used tire exports from France.">© 2026 SMAC Pneu — Export de pneus d'occasion depuis la France.</span>
+    <span data-fr="De la France au monde." data-en="From France to the World.">De la France au monde.</span>
+  </div>
+</footer>
+
+<!-- ─── Floating CTA pill ─────────────────────────────── -->
+<div class="pill" id="pill">
+  <div class="pill__text">
+    <span class="pulse"></span>
+    <span data-fr="10–50 conteneurs/mois disponibles" data-en="10–50 containers/month available">10–50 conteneurs/mois disponibles</span>
+  </div>
+  <a href="#contact">
+    <span data-fr="Demander un devis" data-en="Request a Quote">Demander un devis</span>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+  </a>
+</div>
+
+<!-- Mobile sticky bar -->
+<div class="mobile-bar">
+  <a href="#contact" data-fr="Demander un devis" data-en="Request a Quote">Demander un devis</a>
+</div>
+
+<script>
+  /* ── Language ─────────────────────────────────────── */
+  let lang = 'fr';
+
+  function setLang(l) {
+    lang = l;
+    document.documentElement.lang = l;
+
+    document.querySelectorAll('[data-fr]').forEach(el => {
+      const t = el.dataset[l];
+      if (t !== undefined) el.textContent = t;
+    });
+
+    document.querySelectorAll('[data-fr-placeholder]').forEach(el => {
+      const key = l === 'fr' ? 'frPlaceholder' : 'enPlaceholder';
+      if (el.dataset[key]) el.placeholder = el.dataset[key];
+    });
+
+    document.querySelectorAll('select option[data-fr]').forEach(opt => {
+      const t = opt.dataset[l];
+      if (t) opt.textContent = t;
+    });
+
+    document.querySelectorAll('[data-lang]').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === l);
+    });
+  }
+
+  /* ── Mobile menu ──────────────────────────────────── */
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
+  });
+
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+  }
+
+  document.addEventListener('click', e => {
+    if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) closeMenu();
+  });
+
+  /* ── Tire type chips ──────────────────────────────── */
+  document.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => chip.classList.toggle('active'));
+  });
+
+  /* ── Form ─────────────────────────────────────────── */
+  document.getElementById('rfqForm').addEventListener('submit', e => {
+    e.preventDefault();
+    document.getElementById('rfqForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  });
+
+  /* ── Floating pill visibility ─────────────────────── */
+  const pill = document.getElementById('pill');
+  const contact = document.getElementById('contact');
+
+  const io = new IntersectionObserver(entries => {
+    pill.style.opacity = entries[0].isIntersecting ? '0' : '1';
+    pill.style.pointerEvents = entries[0].isIntersecting ? 'none' : 'auto';
+  }, { threshold: 0.05 });
+
+  io.observe(contact);
+  pill.style.transition = 'opacity .3s';
+</script>
+</body>
+</html>
