@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SMAC Pneu — Carte de Visite VistaPrint</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #e8e8e4;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 24px;
+      gap: 36px;
+    }
+
+    .page-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a1f2e;
+      text-align: center;
+    }
+
+    .page-sub {
+      font-size: 13px;
+      color: #666;
+      text-align: center;
+      margin-top: -24px;
+    }
+
+    .card-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .card-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: #888;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /*
+     * VistaPrint standard business card with bleed:
+     *   3.75" × 2.25" at 300 dpi = 1125 × 675 px
+     *
+     * We render the card at 750 × 450 px in HTML,
+     * display it scaled to 50% (375 × 225 px visible),
+     * then html2canvas captures at scale:1.5 → 1125 × 675 px.
+     */
+    .card-viewport {
+      width: 375px;
+      height: 225px;
+      overflow: hidden;
+      border-radius: 5px;
+      box-shadow: 0 6px 28px rgba(0,0,0,0.15);
+      position: relative;
+    }
+
+    .card-scaler {
+      transform: scale(0.5);
+      transform-origin: top left;
+      width: 750px;
+      height: 450px;
+    }
+
+    /* ── Card base ─────────────────────────────── */
+    .card {
+      width: 750px;
+      height: 450px;
+      background: #EAEAE6;
+      font-family: 'Inter', system-ui, sans-serif;
+      overflow: hidden;
+    }
+
+    /* ── RECTO ────────────────────────────────── */
+    .card-recto {
+      padding: 52px 60px 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .recto-header {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .recto-logo {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .brand-name {
+      font-size: 52px;
+      font-weight: 700;
+      color: #1a1f2e;
+      letter-spacing: 0.04em;
+      line-height: 1;
+    }
+
+    .brand-tagline {
+      font-size: 20px;
+      font-weight: 600;
+      color: #3a8a4a;
+      letter-spacing: 0.1em;
+      margin-top: 10px;
+    }
+
+    .recto-footer {
+      border-top: 1px solid #c8c8c4;
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .contact-name {
+      font-size: 34px;
+      font-weight: 700;
+      color: #1a1f2e;
+    }
+
+    .contact-role {
+      font-size: 24px;
+      font-weight: 500;
+      color: #666;
+      margin-top: 8px;
+    }
+
+    .contact-phone {
+      font-size: 26px;
+      font-weight: 700;
+      color: #3a8a4a;
+    }
+
+    /* ── VERSO ────────────────────────────────── */
+    .card-verso {
+      padding: 44px 60px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .verso-logo-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .verso-logo {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+    }
+
+    .verso-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 40px;
+    }
+
+    .verso-label {
+      font-size: 18px;
+      font-weight: 600;
+      color: #3a8a4a;
+      letter-spacing: 0.08em;
+      margin-bottom: 5px;
+    }
+
+    .verso-value {
+      font-size: 22px;
+      font-weight: 400;
+      color: #1a1f2e;
+    }
+
+    .verso-footer {
+      border-top: 1px solid #c8c8c4;
+      padding-top: 18px;
+    }
+
+    .verso-footer p {
+      font-size: 19px;
+      color: #888;
+      font-style: italic;
+    }
+
+    /* ── Buttons ──────────────────────────────── */
+    .actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      padding: 11px 22px;
+      border: none;
+      border-radius: 6px;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.85; }
+
+    .btn-green  { background: #0F6E56; color: #fff; }
+    .btn-dark   { background: #1a1f2e; color: #fff; }
+
+    /* ── Info box ─────────────────────────────── */
+    .info {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 18px 24px;
+      font-size: 13px;
+      color: #555;
+      max-width: 480px;
+      text-align: center;
+      line-height: 1.7;
+    }
+    .info strong { color: #1a1f2e; font-weight: 600; }
+  </style>
+</head>
+<body>
+
+  <div class="page-title">SMAC Pneu — Carte de Visite</div>
+  <p class="page-sub">Format VistaPrint · 88,9 × 50,8 mm · fond perdu 3,2 mm · 300 dpi</p>
+
+  <!-- ── RECTO ─────────────────────────────────── -->
+  <div class="card-section">
+    <span class="card-label">Recto</span>
+    <div class="card-viewport">
+      <div class="card-scaler">
+        <div id="card-recto" class="card card-recto">
+          <div class="recto-header">
+            <img src="../logo.png" class="recto-logo" alt="Logo SMAC Pneu" crossorigin="anonymous" />
+            <div>
+              <div class="brand-name">SMAC Pneu</div>
+              <div class="brand-tagline">Collecte · Tri · Valorisation</div>
+            </div>
+          </div>
+          <div class="recto-footer">
+            <div>
+              <div class="contact-name">Mathias CHOKKI</div>
+              <div class="contact-role">Directeur commercial</div>
+            </div>
+            <div class="contact-phone">+33 7 55 14 53 87</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-green" onclick="download('card-recto','smacpneu_recto_vistaprint.png')">
+      ↓ Télécharger Recto PNG
+    </button>
+  </div>
+
+  <!-- ── VERSO ─────────────────────────────────── -->
+  <div class="card-section">
+    <span class="card-label">Verso</span>
+    <div class="card-viewport">
+      <div class="card-scaler">
+        <div id="card-verso" class="card card-verso">
+          <div class="verso-logo-wrap">
+            <img src="../logo.png" class="verso-logo" alt="Logo SMAC Pneu" crossorigin="anonymous" />
+          </div>
+          <div class="verso-grid">
+            <div>
+              <div class="verso-label">TÉLÉPHONE</div>
+              <div class="verso-value">+33 7 55 14 53 87</div>
+            </div>
+            <div>
+              <div class="verso-label">EMAIL</div>
+              <div class="verso-value">contact@smacpneu.com</div>
+            </div>
+            <div>
+              <div class="verso-label">SITE WEB</div>
+              <div class="verso-value">www.smacpneu.com</div>
+            </div>
+          </div>
+          <div class="verso-footer">
+            <p>Spécialiste de la filière pneus usagés pour les professionnels</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-dark" onclick="download('card-verso','smacpneu_verso_vistaprint.png')">
+      ↓ Télécharger Verso PNG
+    </button>
+  </div>
+
+  <div class="info">
+    <strong>Fichier généré :</strong> PNG 1125 × 675 px (300 dpi)<br>
+    Inclut le fond perdu · Zone de sécurité : 3,2 mm depuis le bord de coupe<br>
+    Uploadez directement sur VistaPrint → <em>Importer mon design</em>
+  </div>
+
+  <script>
+    function download(id, filename) {
+      const el = document.getElementById(id);
+      const btn = event.currentTarget;
+      btn.textContent = '⏳ Génération…';
+      btn.disabled = true;
+
+      html2canvas(el, {
+        scale: 1.5,          /* 750×450 × 1.5 = 1125×675 px — VistaPrint bleed at 300 dpi */
+        useCORS: true,
+        allowTaint: false,
+        backgroundColor: '#EAEAE6',
+        logging: false
+      }).then(canvas => {
+        const a = document.createElement('a');
+        a.download = filename;
+        a.href = canvas.toDataURL('image/png');
+        a.click();
+        btn.textContent = '✓ Téléchargé';
+        setTimeout(() => {
+          btn.textContent = id === 'card-recto' ? '↓ Télécharger Recto PNG' : '↓ Télécharger Verso PNG';
+          btn.disabled = false;
+        }, 2500);
+      });
+    }
+  </script>
+
+</body>
+</html>
