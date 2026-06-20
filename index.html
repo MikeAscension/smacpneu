@@ -106,7 +106,7 @@
         "name": "Quels sont les grades de qualité des pneus proposés ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "SMAC Pneu propose deux grades : Grade A (profondeur 4–5 mm, excellent état) et Grade B (3–4 mm, marques de surface mineures). Les deux grades sont certifiés Aliapur et livrés avec documentation complète."
+          "text": "SMAC Pneu propose quatre grades : Grade A (≥ 5 mm, excellent état), Grade B (4–5 mm, marques mineures), Grade C (3–4 mm, usure visible) et Carcasse (2 mm, pour rechapage). Tous livrés avec documentation complète."
         }
       },
       {
@@ -299,6 +299,7 @@
     th.ga { color: var(--forest); }
     th.gb { color: var(--canopy); }
     th.gc { color: var(--ash); }
+    th.gcarc { color: #aaa; }
     td { padding: 14px 20px; border-bottom: 1px solid #E1E1E1; line-height: 1.45; }
     td.lbl { font-weight: 600; }
     tr:nth-child(even) td { background: var(--foam); }
@@ -781,22 +782,29 @@
               <th data-fr="Caractéristique" data-en="Characteristic">Caractéristique</th>
               <th class="ga">Grade A</th>
               <th class="gb">Grade B</th>
+              <th class="gc">Grade C</th>
+              <th class="gcarc" data-fr="Carcasse" data-en="Carcass">Carcasse</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td class="lbl" data-fr="Profondeur de gomme" data-en="Tread Depth">Profondeur de gomme</td>
+              <td>≥ 5 mm</td>
               <td>4 – 5 mm</td>
               <td>3 – 4 mm</td>
+              <td>2 mm</td>
             </tr>
             <tr>
               <td class="lbl" data-fr="État visuel" data-en="Visual Condition">État visuel</td>
               <td data-fr="Excellent — comme neuf" data-en="Excellent — like new">Excellent — comme neuf</td>
               <td data-fr="Marques de surface mineures" data-en="Minor surface marks">Marques de surface mineures</td>
+              <td data-fr="Usure visible" data-en="Visible wear">Usure visible</td>
+              <td data-fr="Pour rechapage" data-en="For retreading">Pour rechapage</td>
             </tr>
-
             <tr>
               <td class="lbl" data-fr="Documentation incluse" data-en="Documentation Included">Documentation incluse</td>
+              <td data-fr="Oui" data-en="Yes">Oui</td>
+              <td data-fr="Oui" data-en="Yes">Oui</td>
               <td data-fr="Oui" data-en="Yes">Oui</td>
               <td data-fr="Oui" data-en="Yes">Oui</td>
             </tr>
